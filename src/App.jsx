@@ -43,7 +43,7 @@ function App() {
               <div className="h-[20px]"/>
               <div className="flex flex-row gap-[10px] relative w-full items-center">
                 <div className="flex flex-col gap-[20px] w-full">
-                  <p className="text-head3 text-[19pt]">
+                  <p className="text-head3 text-[20pt]">
                     모든 일에 오너쉽을 가지고 임하는 데브옵스 엔지니어입니다.
                   </p>
                   <div className="inline-flex gap-[20px] flex-col">

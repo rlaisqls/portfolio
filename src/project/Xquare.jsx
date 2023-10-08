@@ -163,7 +163,7 @@ export const Xquare = ({imageOpen}) => {
                                         caption="Uptimia를 사용해 측정한 가용성 결과 대시보드"
                                     />
 
-                                    9월 한달 간 56개의 Pod에 대해 측정한 결과 평균 99.84%의 가용성을 가진다는 것을 확인할 수 있었습니다. AWS에서 Rebalance recommendation 알림이 늦게 오는 경우 2~3분 가량 서버가 중단되는 경우가 이전에 비해 빈도가 적고, 아주 높은 가용성을 보장하는 것 보다는 비용을 절약하는 것이 중요한 상황이었기에 구축 목적을 달성했다고 볼 수 있습니다.<br/>
+                                    9월 한달 간 22개의 Pod에 대해 측정한 결과 평균 99.84%의 가용성을 가진다는 것을 확인할 수 있었습니다. AWS에서 Rebalance recommendation 알림이 늦게 오는 경우 2~3분 가량 서버가 중단되는 경우가 이전에 비해 빈도가 적고, 아주 높은 가용성을 보장하는 것 보다는 비용을 절약하는 것이 중요한 상황이었기에 구축 목적을 달성했다고 볼 수 있습니다.<br/>
 
                                     <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d?pvs=4" target='_blank' rel="noopener noreferrer">
                                     <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
@@ -295,14 +295,13 @@ export const Xquare = ({imageOpen}) => {
                 <span>
                     <Tab/>다만, 문제가 발생했을 때 지식의 부족으로 바로 대응하지 못하였을 때가 있었다는 점이
                     아쉽습니다. 사용하는 기술에 대한 근본적인 이해나 디버깅 능력이 부족하다면 서버의 불안정 상태가
-                    길어져 사용자에게 불편한 경험을 줄 수 있다는 것을 몸소
-                    느꼈습니다.
+                    길어져 사용자에게 불편한 경험을 줄 수 있다는 것을 몸소 느꼈습니다.
                     <br />
                 </span>
                 </p>
                 <p className="relative self-stretch">
                 <span>
-                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다. 그리고 그럼에도 불구하고 서버에 일시적으로 문제가 생길 수 있으니 그것을 복구하기 위한 대책을 적절히 세워놓아야한다는 것을 느꼈습니다.
+                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다. 그리고 
                 </span>
                 </p>
             </div>
