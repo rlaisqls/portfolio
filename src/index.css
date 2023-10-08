@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --gray: rgba(143, 143, 143, 1);
+  --lightgray: rgba(219, 219, 219, 1);
+  --main: rgba(133, 122, 255, 1);
+  --white: rgba(255, 255, 255, 1);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+code {
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px;
+}
