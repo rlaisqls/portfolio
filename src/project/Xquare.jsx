@@ -179,8 +179,8 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="Istio를 통해 Service mesh 내부 통신 추적" detail={
                             <>
-                                서버 내부끼리 통신할 떄 발생하는 트래픽을 관리하고 로그를 기록하기 위해 Istio를 사용하였습니다.<br/>
-                                istio-proxy 로그를 통해 pod별 요청 내역을 확인할 수 있어 서버 문제를 디버깅하기 수월했습니다.
+                                서버 내부끼리 통신할 떄 발생하는 트래픽을 관리하고 로그를 기록하기 위해 Istio를 사용하였습니다. istio-proxy 로그를 통해 pod별 요청 내역을 확인할 수 있어 서버 문제를 디버깅하기 수월했습니다.<br/>
+                                kiali dashboard를 사용해 통신 구조, 서버별 평균 응답시간을 쉽게 파악할 수 있도록 했습니다.
                                 <ModalImage
                                     src="/img/description/kiali-dashboard.png"
                                     className="h-[280px] mt-[10px]" open={imageOpen}
@@ -188,7 +188,7 @@ export const Xquare = ({imageOpen}) => {
                                 />
                             </>
                         }/>
-                        <Toggle summary="Envoy ext auth로 공통 토큰 인증을 위한 middleware 구축" detail={
+                        <Toggle summary="Istio(Envoy) ext auth로 공통 토큰 인증을 위한 middleware 구축" detail={
                             <>
                                 <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발했습니다. Authorization 헤더가 포함된 외부 트래픽이 들어오면 proxy에서 검증을 수행하고 유저 Id, role 정보를 담은 헤더를 추가합니다.<br/>
                                 <Tab/><code>testing</code> package로 로직에 대한 테스트코드를 작성했습니다.
