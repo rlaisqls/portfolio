@@ -35,7 +35,7 @@ export const Xquare = ({imageOpen}) => {
                         <Toggle summary="Xquare 배포를 위한 Git Action Template 개발" detail={
                             <>
                                 <Tab/>다른 동아리의 Repository에 있는 프로젝트를 한 인프라에 배포하기 위해 Git Action을 사용하여 배포 파이프라인을 제작했습니다. ArgoCD, Terraform 등의 툴과 Shell 스크립트, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다. <br/>
-                                <Tab/>각 동아리가 액세스 키를 발급받으면 Git Action을 통해 배포 파이프라인을 자유롭게 활용할 수 있습니다. 프로젝트 추가 및 CD 구축을 위해 드는 공수을 최소화합니다.
+                                <Tab/>프로젝트 추가 및 CD 구축을 위해 드는 공수을 최소화합니다. 각 동아리는 액세스 키를 발급받으면 Git Action을 통해 배포 파이프라인을 자유롭게 활용할 수 있습니다. 
                                 <Gap/>
                                 <ModalImage src="/img/description/deployment-action.png" open={imageOpen}/>
                                 <Tab/>Xquare 배포 액션을 사용해 배포할 때 수행되는 과정을 나타낸 흐름도입니다.<br/>
@@ -127,19 +127,19 @@ export const Xquare = ({imageOpen}) => {
                         <Toggle summary={
                             <>
                                 전체 node가 Spot instance인 환경에서 downtime 없는 서버 운영을 위한 전략 수립 <br />
-                                PDB와 커스텀한 NTH를 함께 사용하여 99.84%의 가용성 확보
+                                PDB와 커스텀한 NTH를 함께 사용하여 99.95%의 가용성 확보
                             </>} detail={
                                 <>
                                     <Tab/>Xquare 인프라에서는 프로젝트 증가에 따라 노드를 스케일링할 수 있어야 했고, 학교에서 지원해주는 예산의 한계가 있어 월 60만원 이상의 비용을 사용할 수 없었습니다. 따라서 가격이 저렴하고 인스턴스를 늘리고 줄이기 쉬운 Spot Instance로 모든 노드를 구성하였습니다.<br/>
 
-                                    <Tab/>Spot Instance는 가격 변동으로 인해 불시에 내려갈 수 있는 특성이 있는데, node가 내려갈 때 마다 Pod가 10분 이상 정지하는 현상이 발생했습니다. 예측할 수 없는 서버 정지로 인해 사용자들이 불편을 느끼는 상황이 잦았기에 이를 해결하기 위해 아래와 같은 방법을 사용했습니다.<br/>
+                                    <Tab/>Spot Instance는 가격 변동으로 인해 불시에 내려갈 수 있는 특성이 있는데, node가 내려갈 때 마다 서버가 10분 이상 정지하는 현상이 발생했습니다. 예측할 수 없는 서버 정지로 인해 사용자들이 불편을 느끼는 상황이 잦았기에 이를 해결하기 위해 아래와 같은 방법을 사용했습니다.<br/>
 
                                     <Gap/><Gap/>
 
                                     <Semibold text="Karpenter"/>
                                     
                                     <TextSection text={<>
-                                        <Tab/>Karpenter는 ASG(자동 확장 그룹)를 사용할 때 발생하는 downtime 문제를 해결하기 위해 도입했습니다. NTH가 cordon 되는 시점에 새로운 노드를 바로 생성할 수 있으며, ASG와 비교하여 노드 생성 및 등록 시간이 짧아져 downtime을 줄일 수 있습니다.
+                                        <Tab/>Karpenter는 ASG(자동 확장 그룹)를 사용할 때 긴 downtime 이 발생하는 문제를 해결하기 위해 도입했습니다. NTH가 cordon 되는 시점에 새로운 노드를 바로 생성할 수 있으며, ASG 볻다 노드 생성 및 등록 시간이 짧아져 downtime을 줄일 수 있습니다.
                                     </>}/>
 
                                     <Gap/><Gap/>
@@ -163,7 +163,8 @@ export const Xquare = ({imageOpen}) => {
                                         caption="Uptimia를 사용해 측정한 가용성 결과 대시보드"
                                     />
 
-                                    9월 한달 간 22개의 Pod에 대해 측정한 결과 평균 99.84%의 가용성을 가진다는 것을 확인할 수 있었습니다. AWS에서 Rebalance recommendation 알림이 늦게 오는 경우 2~3분 가량 서버가 중단되는 경우가 이전에 비해 빈도가 적고, 아주 높은 가용성을 보장하는 것 보다는 비용을 절약하는 것이 중요한 상황이었기에 구축 목적을 달성했다고 볼 수 있습니다.<br/>
+                                    <br/>
+                                    9월 한달 간 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선되었다는 것을 확인할 수 있었습니다. (분당 1회씩 health check용 api, url에 요청을 보내 측정)
 
                                     <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d?pvs=4" target='_blank' rel="noopener noreferrer">
                                     <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
@@ -222,7 +223,7 @@ export const Xquare = ({imageOpen}) => {
                                         caption="프로젝트의 로그를 나타내는 grafana 대시보드"
                                     />
                                 </div>
-                                <Tab/>Prometheus를 통해 CPU, memory 등의 매트릭을 수집하고, thanos로 s3 storage에 영구 저장하여 모니터링합니다. 리소스가 급격하게 많이 사용되는 경우 slack과 연동한 alertmanager를 통해 확인하고 서버 상태를 점검합니다.<br/>
+                                <Tab/>Prometheus를 통해 CPU, memory 등의 매트릭을 수집하고, thanos로 s3 storage에 영구 저장하여 모니터링합니다. 리소스가 급격하게 많이 사용되는 경우 alertmanager를 통해 slack 알림을 받아 확인하고 서버 상태를 점검합니다.<br/>
                                 <div className="mt-[10px] mb-[5px]">
                                     <ModalImage
                                         src="/img/description/grafana-compute-resources.png"
@@ -301,7 +302,7 @@ export const Xquare = ({imageOpen}) => {
                 </p>
                 <p className="relative self-stretch">
                 <span>
-                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다. 그리고 
+                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다.
                 </span>
                 </p>
             </div>
