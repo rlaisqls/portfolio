@@ -126,8 +126,8 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                         <Toggle summary={
                             <>
-                                전체 node가 Spot instance인 환경에서 downtime 없는 서버 운영을 위한 전략 수립 <br />
-                                PDB와 커스텀한 NTH를 함께 사용하여 99.95%의 가용성 확보
+                                전체 node가 Spot instance인 환경에서 downtime 없는 서버 운영을 위해 PDB와 커스텀한 NTH를 함께 사용<br/>
+                                (가용성 2%p 개선, 약 97.9% → 99.95%)
                             </>} detail={
                                 <>
                                     <Tab/>Xquare 인프라에서는 프로젝트 증가에 따라 노드를 스케일링할 수 있어야 했고, 학교에서 지원해주는 예산의 한계가 있어 월 60만원 이상의 비용을 사용할 수 없었습니다. 따라서 가격이 저렴하고 인스턴스를 늘리고 줄이기 쉬운 Spot Instance로 모든 노드를 구성하였습니다.<br/>

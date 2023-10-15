@@ -57,8 +57,8 @@ function App() {
                       그러한 통찰력을 기르기 위해 끊임없이 배우고 있으며, 부족한 점에 있어서 두려움없이 받아들이고 수용합니다.
                     </div>
                     <div>
-                      많은 사람들과 협력하여 의견 공유와 학습의 기회를 만드는 것이 성장에 도움을 준다고 믿습니다. <br />
-                      그러한 과정은 저를 더욱 성숙하게 만들고 지속적으로 발전할 수 있는 동기를 제공합니다. 
+                      사람들과 의견을 공유하고, 함께 학습하는 기회를 만드는 것이 성장에 도움을 준다고 믿습니다. <br />
+                      그러한 과정을 통해 더 성숙해지고, 발전할 수 있는 동기를 얻습니다. 
                     </div>
                   </div>
                 </div>
@@ -147,10 +147,23 @@ function App() {
               <div className="relative w-[217px] text-head2">Experiences</div>
               <Line/>
               <div className="inline-flex gap-[40px] relative flex-[0_0_auto] flex-col items-start">
-           
+                           
+                <Element
+                    title={"Doodlin 외주"}
+                    elementInfo={"2023.01 ~ 2023.02"}
+                    description={
+                      (<div className="flex flex-col items-start gap-[9px]">
+                          <p>
+                            겨울방학 기간에 Greeting을 개발하는 Doodlin에서 지원자 엑셀 벌크 등록 및 수정 기능을 개발하였습니다.<br />
+                            프로덕트의 목표를 달성하기 위해 기능을 기획하고 구현하는 과정을 경험할 수 있었습니다.<br />
+                            excel 파싱시 메모리 부하 개선을 위해 apache poi sax 라이브러리를 사용해 엑셀 정보를 XML 형식으로 읽고 stream 처리하도록 구현하였습니다.
+                          </p>
+                        </div>)
+                    }
+                />
                 <Element
                     title={"TIL Repository"}
-                    elementInfo={"2023.05 ~ present"}
+                    elementInfo={"2022.05 ~ present"}
                     description={
                       (<div className="flex flex-col items-start gap-[9px]">
                           <p>
