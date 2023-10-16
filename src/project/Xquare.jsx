@@ -94,7 +94,7 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform으로 배포" detail={
                             <>
-                                명령어를 통해 manifest나 chart를 설치하면 어떤 요소를 누가 수정했는지 파악하기 힘들기 때문에,<br/>
+                                명령어를 통해 manifest나 chart를 설치하면 어떤 요소를 누가 수정했는지 파악하기 힘듭니다.<br/>
                                 GitOps 기반으로 누가 언제 어떤 변경을 적용했는지 기록하기 위해 아래와 같이 구성하였습니다.<br/>
                                 <Gap/><Gap/>
                                 1. 기본적으로 설치되어야 하며 자주 변하지 않는 인프라 요소(istio, karpenter, argoCD 등)는<br/>
@@ -126,8 +126,8 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                         <Toggle summary={
                             <>
-                                전체 node가 Spot instance인 환경에서 downtime 없는 서버 운영을 위해 PDB와 커스텀한 NTH를 함께 사용<br/>
-                                (가용성 2%p 개선, 약 97.9% → 99.95%)
+                                Spot instance node에서 downtime 없는 서버 운영을 위해 PDB와 커스텀한 NTH를 함께 사용<br/>
+                                (가용성 2%pt 개선, 약 97.9% → 99.95%)
                             </>} detail={
                                 <>
                                     <Tab/>Xquare 인프라에서는 프로젝트 증가에 따라 노드를 스케일링할 수 있어야 했고, 학교에서 지원해주는 예산의 한계가 있어 월 60만원 이상의 비용을 사용할 수 없었습니다. 따라서 가격이 저렴하고 인스턴스를 늘리고 줄이기 쉬운 Spot Instance로 모든 노드를 구성하였습니다.<br/>
@@ -178,7 +178,7 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     <Bold text="• 모니터링"/><br/>
                     <div className="ml-[10px]">
-                        <Toggle summary="Istio를 통해 Service mesh 내부 통신 추적" detail={
+                        <Toggle summary="Istio로 내부 통신 추적, Envoy ext auth로 공통 토큰 인증을 위한 middleware 개발" detail={
                             <>
                                 서버 내부끼리 통신할 떄 발생하는 트래픽을 관리하고 로그를 기록하기 위해 Istio를 사용하였습니다. istio-proxy 로그를 통해 pod별 요청 내역을 확인할 수 있어 서버 문제를 디버깅하기 수월했습니다.<br/>
                                 kiali dashboard를 사용해 통신 구조, 서버별 평균 응답시간을 쉽게 파악할 수 있도록 했습니다.
@@ -187,10 +187,6 @@ export const Xquare = ({imageOpen}) => {
                                     className="h-[280px] mt-[10px]" open={imageOpen}
                                     caption="Istio 통신 로그를 시각화한 kiali dashboard"
                                 />
-                            </>
-                        }/>
-                        <Toggle summary="Istio(Envoy) ext auth로 공통 토큰 인증을 위한 middleware 구축" detail={
-                            <>
                                 <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발했습니다. Authorization 헤더가 포함된 외부 트래픽이 들어오면 proxy에서 검증을 수행하고 유저 Id, role 정보를 담은 헤더를 추가합니다.<br/>
                                 <Tab/><code>testing</code> package로 로직에 대한 테스트코드를 작성했습니다.
                                 <a href="https://github.com/team-xquare/envoy-middleware" target='_blank' rel="noopener noreferrer">
@@ -241,7 +237,8 @@ export const Xquare = ({imageOpen}) => {
                         <Toggle summary="Terraform을 통해 EKS, S3, RDS 등 인프라 스펙 선언 및 관리" detail={
                             <>
                                 <Tab/>Terraform을 사용해 VPC, EKS, S3, RDS, SQS, Elasticcache, IAM, Role, ECR 등을 코드로<br/>
-                                선언하여 관리하고 있습니다. state 파일은 Terraform Cloud를 통해 저장합니다.
+                                선언하여 관리하고 있습니다. state 파일은 Terraform Cloud를 통해 저장합니다.<br/>
+                                필요한 리소스를 모듈화하여 중복 코드를 줄였습니다.
                                 <a href="https://github.com/team-xquare/xquare-infrastructure-global" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <GithubText text="team-xquare/xquare-infrastructure-global"/>

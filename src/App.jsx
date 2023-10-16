@@ -58,7 +58,7 @@ function App() {
                     </div>
                     <div>
                       사람들과 의견을 공유하고, 함께 학습하는 기회를 만드는 것이 성장에 도움을 준다고 믿습니다. <br />
-                      그러한 과정을 통해 더 성숙해지고, 발전할 수 있는 동기를 얻습니다. 
+                      그러한 과정을 통해 더 성숙해지고 발전할 수 있는 동기를 얻습니다. 
                     </div>
                   </div>
                 </div>
@@ -86,8 +86,8 @@ function App() {
               <p className="text-head2"> Skills </p>
               <Line/>
               <div className="flex flex-col items-start gap-[9px] w-[260px] h-[81px] left-0 ">
-                <p className="relative self-stretch"> • Java, Kotiln, Spring boot, Go <br /> </p>
-                <p className="relative self-stretch"> • AWS, Linux, Terraform, ShellScript <br /> </p>
+                <p className="relative self-stretch"> • Java, Kotiln, Spring boot, Go <br/> </p>
+                <p className="relative self-stretch"> • AWS, Linux, Terraform, ShellScript <br/> </p>
                 <p className="relative self-stretch"> • K8s, Prometheus, Istio 등 오픈소스 </p>
               </div>
             </div>
