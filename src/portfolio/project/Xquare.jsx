@@ -38,8 +38,8 @@ export const Xquare = ({imageOpen}) => {
                                 <Tab/>프로젝트 추가 및 CD 구축을 위해 드는 공수을 최소화합니다. 각 동아리는 액세스 키를 발급받으면 Git Action을 통해 배포 파이프라인을 자유롭게 활용할 수 있습니다. 
                                 <Gap/>
                                 <ModalImage src="/img/description/deployment-action.png" open={imageOpen}/>
-                                <Tab/>Xquare 배포 액션을 사용해 배포할 때 수행되는 과정을 나타낸 흐름도입니다.<br/>
-                                <Gap/>
+                                <Tab/>Xquare 배포 액션을 사용해 배포할 때 수행되는 과정을 나타낸 도식입니다.<br/>
+                                <Gap/><Gap/>
                                 <Semibold text="1. Git Action 실행"/>
                                 <TextSection text={<>
                                     각 동아리는 xquare Action Template을 레포지토리의 Action에 적용합니다.<br/>
@@ -139,14 +139,14 @@ export const Xquare = ({imageOpen}) => {
                                     <Semibold text="Karpenter"/>
                                     
                                     <TextSection text={<>
-                                        <Tab/>Karpenter는 ASG(자동 확장 그룹)를 사용할 때 긴 downtime 이 발생하는 문제를 해결하기 위해 도입했습니다. NTH가 cordon 되는 시점에 새로운 노드를 바로 생성할 수 있으며, ASG 볻다 노드 생성 및 등록 시간이 짧아져 downtime을 줄일 수 있습니다.
+                                        <Tab/>Karpenter는 ASG(자동 확장 그룹)를 사용할 때 긴 downtime 이 발생하는 문제를 해결하기 위해 도입했습니다. NTH가 cordon 되는 시점에 새로운 노드를 바로 생성할 수 있으며, ASG 보다 노드 생성 및 등록 시간이 짧아져 downtime을 줄일 수 있습니다.
                                     </>}/>
 
                                     <Gap/><Gap/>
 
                                     <Semibold text="Node Termination Handler 커스터마이징"/>
                                     <TextSection text={<>
-                                        <Tab/> PDB(Pod Disruption Budget) 설정 후 pod의 복제본(replica) 개수를 2개 이상으로 증가시키면 한 노드가 종료되더라도 downtime 없이 서버를 운영할 수 있습니다. 그러나 pod의 복제본을 2배로 증가시키면 추가적인 노드 비용 부담이 발생해 상황에 부적절합니다.<br/>
+                                        <Tab/> PDB(Pod Disruption Budget) 설정 후 pod의 복제본(replica) 개수를 2개 이상으로 증가시키면 한 노드가 종료되더라도 downtime 없이 서버를 운영할 수 있습니다. 그러나 pod의 복제본을 2배로 증가시키면 추가적인 노드 비용 부담이 발생해 상황에 부적절했습니다.<br/>
                                         <Tab/> node 종료 직전에 replica 개수를 임시적으로 증가시킨 후, 새로운 replica 서버를 생성해 트래픽을 받을 수 있을 때 다시 줄인다면 최소한의 리소스만 사용하면서 문제를 해결할 수 있다는 가설을 세웠습니다. Node Termination Handler의 코드를 커스텀하여 해당 동작을 구현함으로써 가용성을 향상시켰습니다.
                                         <a href="https://github.com/team-xquare/node-termination-handler" target='_blank' rel="noopener noreferrer">
                                         <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
@@ -184,7 +184,7 @@ export const Xquare = ({imageOpen}) => {
                                 kiali dashboard를 사용해 통신 구조, 서버별 평균 응답시간을 쉽게 파악할 수 있도록 했습니다.
                                 <ModalImage
                                     src="/img/description/kiali-dashboard.png"
-                                    className="h-[280px] mt-[10px]" open={imageOpen}
+                                    className="h-[180px] mt-[10px]" open={imageOpen}
                                     caption="Istio 통신 로그를 시각화한 kiali dashboard"
                                 />
                                 <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발했습니다. Authorization 헤더가 포함된 외부 트래픽이 들어오면 proxy에서 검증을 수행하고 유저 Id, role 정보를 담은 헤더를 추가합니다.<br/>
@@ -209,23 +209,27 @@ export const Xquare = ({imageOpen}) => {
                                 </div>
                             </>
                         }/>
-                        <Toggle summary="Loki 사용하여 로그 수집, Prometheus로 매트릭 수집 후 Thanos로 영구 저장" detail={
+                        <Toggle summary="Loki 사용하여 로그 수집, Prometheus(+Thanos)로 매트릭 수집" detail={
                             <>
                                 <Tab/>Loki를 사용하여 로그를 수집하고 s3 storage에 저장합니다. 등록된 프로젝트를 개발하는 인원은 Oauth로 로그인하여 프로젝트의 로그 대시보드에 접근할 수 있도록 하였습니다.
-                                <div className="mt-[10px] mb-[5px]">
-                                    <ModalImage
-                                        src="/img/description/grafana-loki-dashboard.png"
-                                        className="h-[240px]" open={imageOpen}
-                                        caption="프로젝트의 로그를 나타내는 grafana 대시보드"
-                                    />
-                                </div>
+                                <Gap/>
                                 <Tab/>Prometheus를 통해 CPU, memory 등의 매트릭을 수집하고, thanos로 s3 storage에 영구 저장하여 모니터링합니다. 리소스가 급격하게 많이 사용되는 경우 alertmanager를 통해 slack 알림을 받아 확인하고 서버 상태를 점검합니다.<br/>
-                                <div className="mt-[10px] mb-[5px]">
-                                    <ModalImage
-                                        src="/img/description/grafana-compute-resources.png"
-                                        className="h-[220px]" open={imageOpen}
-                                        caption="리소스 사용률을 나타내는 Grafana 대시보드"
-                                    />
+
+                                <div className="flex flex-row gap-[10px]">
+                                    <div className="mt-[10px] mb-[5px]">
+                                        <ModalImage
+                                            src="/img/description/grafana-loki-dashboard.png"
+                                            className="h-[160px]" open={imageOpen}
+                                            caption="프로젝트의 로그를 나타내는 grafana 대시보드"
+                                        />
+                                    </div>
+                                    <div className="mt-[10px] mb-[5px]">
+                                        <ModalImage
+                                            src="/img/description/grafana-compute-resources.png"
+                                            className="h-[160px]" open={imageOpen}
+                                            caption="리소스 사용률을 나타내는 Grafana 대시보드"
+                                        />
+                                    </div>
                                 </div>
                             </>
                         }/>

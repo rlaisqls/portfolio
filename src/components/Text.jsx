@@ -17,7 +17,7 @@ export const Gap = () => {
 
 export const TextSection = ({text}) => {
     return (
-        <div className="ml-[15px]">
+        <div className="mb-[10px] ml-[15px]">
             {text}
         </div>
     );
