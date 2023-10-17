@@ -1,8 +1,8 @@
-import { ProjectBanner } from "../components/ProjectBanner";
-import { Toggle } from "../components/Toggle";
-import { Bold, Tab } from "../components/Text";
-import { GithubText, DocumentText } from "../components/IconText";
-import { ModalImage } from "../components/ModalImage";
+import { ProjectBanner } from "../../components/ProjectBanner";
+import { Toggle } from "../../components/Toggle";
+import { Bold, Tab } from "../../components/Text";
+import { GithubText, DocumentText } from "../../components/IconText";
+import { ModalImage } from "../../components/ModalImage";
 
 export const DMS = ({imageOpen}) => {
     return (
@@ -163,7 +163,7 @@ export const DMS = ({imageOpen}) => {
             </p>
             <p className="relative self-stretch">
                 <span>
-                &nbsp;&nbsp;프로젝트의 기능이 많아지다보니 백엔드 코드에서 중복을 없애고 각 도메인의 역할을 구분하기 위해선
+                <Tab/>프로젝트의 기능이 많아지다보니 백엔드 코드에서 중복을 없애고 각 도메인의 역할을 구분하기 위해선
                 코드를 보다 구조적으로 적용해야 했습니다. 이를 위해 DDD, Hexagonal Architecture, 그리고 그를
                 응용한 아키텍처에 대해 공부하고 고민할 수 있었습니다.
                 </span>

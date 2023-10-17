@@ -1,14 +1,14 @@
 import React from "react";
-import { Element } from "./components/Element";
-import { Line } from "./components/Line";
-import { Footer } from "./components/Footer";
-import { GithubText, DocumentText } from "./components/IconText";
-import { PersonalInfo } from "./components/PersonalInfo";
+import { Element } from "../components/Element";
+import { Line } from "../components/Line";
+import { Footer } from "../components/Footer";
+import { GithubText, DocumentText } from "../components/IconText";
+import { PersonalInfo } from "../components/PersonalInfo";
 import { Xquare } from "./project/Xquare";
 import { DMS } from "./project/DMS";
-import { Modal } from "./components/Modal";
+import { Modal } from "../components/Modal";
 
-function App() {
+export const Portfolio = () => {
 
   const [open, setOpen] = React.useState(false);
   const [image, setImage] = React.useState("");
@@ -58,7 +58,7 @@ function App() {
                     </div>
                     <div>
                       사람들과 의견을 공유하고, 함께 학습하는 기회를 만드는 것이 성장에 도움을 준다고 믿습니다. <br />
-                      그러한 과정을 통해 더 성숙해지고 발전할 수 있는 동기를 얻습니다. 
+                      그러한 과정을 통해 더 성숙해지고 발전하는 동기를 얻습니다. 
                     </div>
                   </div>
                 </div>
@@ -259,5 +259,3 @@ function App() {
     </>
   );
 }
-
-export default App;

@@ -1,9 +1,9 @@
-import { GithubText } from "../components/IconText";
-import { DocumentText } from "../components/IconText";
-import { ProjectBanner } from "../components/ProjectBanner";
-import { Toggle } from "../components/Toggle";
-import { ModalImage } from "../components/ModalImage";
-import { Bold, Semibold, Tab, Gap, TextSection } from "../components/Text";
+import { GithubText } from "../../components/IconText";
+import { DocumentText } from "../../components/IconText";
+import { ProjectBanner } from "../../components/ProjectBanner";
+import { Toggle } from "../../components/Toggle";
+import { ModalImage } from "../../components/ModalImage";
+import { Bold, Semibold, Tab, Gap, TextSection } from "../../components/Text";
 
 export const Xquare = ({imageOpen}) => {
     return (

@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import { Portfolio } from './portfolio/Portfolio';
+import { PersonalStatement } from './personalStatement/PersonalStatement';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Portfolio/>}></Route>
+        <Route path="/personal" element={<PersonalStatement />}></Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
