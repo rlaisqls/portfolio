@@ -185,12 +185,12 @@ export const Portfolio = () => {
                       (<div className="flex flex-col items-start gap-[9px]">
                         <p>
                           <span>
-                            오픈소스에서 개선을 위해 기여한 경험이 있습니다.<br/>•
+                            오픈소스, 위키에서 개선을 위해 기여한 경험이 있습니다.<br/>•
                           </span>
                           <a href="https://github.com/aws/amazon-vpc-cni-k8s/pull/2573#event-10400082240" rel="noopener noreferrer" target="_blank" > <span className="underline"> 23.09.18 </span>
-                          </a> <span> : amazon-vpc-cni-k8s Docs에서 WARM_PREFIX_TARGET 설명에 포함된 잘못된 값 수정 <br/>
-                          • </span> <a href="https://github.com/istio/istio/pull/47026" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.09.18 </span> </a> <span> : Istio Docs에서 잘못된 링크 수정 </span>
-                         • </span>  <a href="https://ko.wikipedia.org/w/index.php?title=%EA%B1%B0%EB%A6%AC_%EB%B2%A1%ED%84%B0_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C&action=history" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.10.20 </span> </a> <span> : 위키백과 '거리 벡터 라우팅 프로토콜' 한국어 문서 작성 </span>
+                          </a> : amazon-vpc-cni-k8s Docs에서 WARM_PREFIX_TARGET 설명에 포함된 잘못된 값 수정 <br/>
+                          • <a href="https://github.com/istio/istio/pull/47026" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.09.18 </span> </a> : Istio Docs에서 잘못된 링크 수정<br/>
+                          • <a href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EB%A6%AC_%EB%B2%A1%ED%84%B0_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.10.20 </span></a> : 위키백과 '거리 벡터 라우팅 프로토콜' 한국어 문서 작성
                         </p>
                       </div>)
                     }
