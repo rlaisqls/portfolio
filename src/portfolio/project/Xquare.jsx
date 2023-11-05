@@ -32,22 +32,22 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     <Bold text="• CI/CD"/><br />
                     <div className="ml-[10px]">
-                        <Toggle summary="Xquare 배포를 위한 Git Action Template 개발" detail={
+                        <Toggle summary="Xquare 배포를 위한 Github Actions Template 개발" detail={
                             <>
-                                <Tab/>다른 동아리의 Repository에 있는 프로젝트를 한 인프라에 배포하기 위해 Git Action을 사용하여 배포 파이프라인을 제작했습니다. ArgoCD, Terraform 등의 툴과 Shell 스크립트, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다. <br/>
-                                <Tab/>프로젝트 추가 및 CD 구축을 위해 드는 공수을 최소화합니다. 각 동아리는 액세스 키를 발급받으면 Git Action을 통해 배포 파이프라인을 자유롭게 활용할 수 있습니다. 
+                                <Tab/>다른 동아리의 Repository에 있는 프로젝트를 한 인프라에 배포하기 위해 Github Actions을 사용하여 배포 파이프라인을 제작했습니다. ArgoCD, Terraform 등의 툴과 Shell 스크립트, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다. <br/>
+                                <Tab/>프로젝트 추가 및 CD 구축을 위해 드는 공수를 최소화합니다. 각 동아리는 액세스 키를 발급받으면 Github Actions을 통해 배포 파이프라인을 자유롭게 활용할 수 있습니다. 
                                 <Gap/>
                                 <ModalImage src="/img/description/deployment-action.png" open={imageOpen}/>
                                 <Tab/>Xquare 배포 액션을 사용해 배포할 때 수행되는 과정을 나타낸 도식입니다.<br/>
                                 <Gap/><Gap/>
-                                <Semibold text="1. Git Action 실행"/>
+                                <Semibold text="1. Github Actions 실행"/>
                                 <TextSection text={<>
                                     각 동아리는 xquare Action Template을 레포지토리의 Action에 적용합니다.<br/>
                                     access key를 관리자에게 발급받아 input에 넣으면 Action Template을 실행할 수 있습니다.
                                 </>}/>
                                 <Semibold text="2. OIDC로 ECR, Secret Manager 권한 assume"/>
                                 <TextSection text={<>
-                                    Git Action에 OIDC role을 assume하여 필요한 AWS 리소스에 접근하도록 합니다.
+                                    Github Actions에 OIDC role을 assume하여 필요한 AWS 리소스에 접근하도록 합니다.
                                 </>}/>
                                 <Semibold text="3. 도커 이미지 빌드"/>
                                 <TextSection text={<>
@@ -60,7 +60,7 @@ export const Xquare = ({imageOpen}) => {
                                 </>}/>
                                 <Semibold text="5. ArgoCD에 application 추가"/>
                                 <TextSection text={<>
-                                    ArgoCD repository가 Git Action Dispatch를 통해 적용할 정보를 전달받고, yaml 파일에  ecr 레포지토리와 이미지 태그 정보를 담아 커밋합니다. 이후 ArgoCD의 ApplicationSet이 설정 파일 목록을 읽어 Application을 생성 혹은 수정합니다. 그러므로 Project를 쉽게 추가할 수 있고 구조 변경에 유연합니다.<br/>
+                                    ArgoCD repository가 Github Actions Dispatch를 통해 적용할 정보를 전달받고, yaml 파일에  ecr 레포지토리와 이미지 태그 정보를 담아 커밋합니다. 이후 ArgoCD의 ApplicationSet이 설정 파일 목록을 읽어 Application을 생성 혹은 수정합니다. 그러므로 Project를 쉽게 추가할 수 있고 구조 변경에 유연합니다.<br/>
                                 </>}/>
                                 <Semibold text="6. K8s Cluster에 반영"/>
                                 <TextSection text={<>
@@ -240,7 +240,7 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="Terraform을 통해 EKS, S3, RDS 등 인프라 스펙 선언 및 관리" detail={
                             <>
-                                <Tab/>Terraform을 사용해 VPC, EKS, S3, RDS, SQS, Elasticcache, IAM, Role, ECR 등을 코드로<br/>
+                                <Tab/>Terraform을 사용해 VPC, EKS, S3, RDS, SQS, ElasticCache, IAM Role, ECR 등을 코드로<br/>
                                 선언하여 관리하고 있습니다. state 파일은 Terraform Cloud를 통해 저장합니다.<br/>
                                 필요한 리소스를 모듈화하여 중복 코드를 줄였습니다.
                                 <a href="https://github.com/team-xquare/xquare-infrastructure-global" target='_blank' rel="noopener noreferrer">
@@ -288,7 +288,7 @@ export const Xquare = ({imageOpen}) => {
                 <p className="relative self-stretch">
                 <span>
                     <Tab/>또, 모니터링을 통해 서버의 상태를 실시간으로 파악하거나, 면밀하게 살펴보고 기록하는 것이
-                    중요하다는 것을 느꼈습니다. prometheus, loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에
+                    중요하다는 것을 느꼈습니다. Prometheus, loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에
                     빠르게 파악하여 조치할 수 있었습니다.
                     <br />
                 </span>
@@ -303,7 +303,7 @@ export const Xquare = ({imageOpen}) => {
                 </p>
                 <p className="relative self-stretch">
                 <span>
-                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다.
+                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고, 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다.
                 </span>
                 </p>
             </div>

@@ -44,7 +44,7 @@ export const Portfolio = () => {
               <div className="flex flex-row gap-[10px] relative w-full items-center">
                 <div className="flex flex-col gap-[20px] w-full">
                   <p className="text-head3 text-[20pt]">
-                    모든 일에 오너쉽을 가지고 임하는 데브옵스 엔지니어입니다.
+                    모든 일에 오너쉽을 가지고 임하는 엔지니어입니다.
                   </p>
                   <div className="inline-flex gap-[20px] flex-col">
                     <div>
@@ -190,10 +190,12 @@ export const Portfolio = () => {
                           <a href="https://github.com/aws/amazon-vpc-cni-k8s/pull/2573#event-10400082240" rel="noopener noreferrer" target="_blank" > <span className="underline"> 23.09.18 </span>
                           </a> <span> : amazon-vpc-cni-k8s Docs에서 WARM_PREFIX_TARGET 설명에 포함된 잘못된 값 수정 <br/>
                           • </span> <a href="https://github.com/istio/istio/pull/47026" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.09.18 </span> </a> <span> : Istio Docs에서 잘못된 링크 수정 </span>
+                         • </span>  <a href="https://ko.wikipedia.org/w/index.php?title=%EA%B1%B0%EB%A6%AC_%EB%B2%A1%ED%84%B0_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C&action=history" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.10.20 </span> </a> <span> : 위키백과 '거리 벡터 라우팅 프로토콜' 한국어 문서 작성 </span>
                         </p>
                       </div>)
                     }
                 />
+                
               </div>
             </div>
 
