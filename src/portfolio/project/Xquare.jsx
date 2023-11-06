@@ -115,7 +115,7 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     <Bold text="IaC"/><br/>
                     <div className="ml-[10px]">
-                        <Toggle summary="Terraform을 통해 EKS, S3, RDS, IAM role 등 인프라 스펙 선언 및 관리" detail={
+                        <Toggle summary="Terraform을 통해 AWS 인프라 스펙 선언 및 관리" detail={
                             <>
                                 <Tab/>Terraform을 사용해 AWS 리소스를 코드로 선언하여 관리합니다. 필요한 경우  모듈과 변수를 활용하여 중복 코드를 줄였습니다. state 파일은 Terraform Cloud를 통해 저장합니다.
                                 

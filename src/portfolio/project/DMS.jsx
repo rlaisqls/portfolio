@@ -36,7 +36,7 @@ export const DMS = ({imageOpen}) => {
                     <Toggle summary="요구사항 수집 및 추가 기능 기획, 문서화" detail={
                         <>
                             <Tab/>프로젝트 요구사항 수집 및 기획 과정을 이끌었습니다. 설문조사와 인터뷰를 통해 요구사항을 수집하고 PRD와 기능명세서 등 문서를 작성하여 서비스의 기능을 팀원들과 함께 세밀하게 기획했습니다. <br/>
-                            <Tab/>기획을 위해 여러 회의를 거치면서 팀원들과 의견을 효율적으로 나누는 법을 배웠고, 기획시에는 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.
+                            <Tab/>기획을 위해 여러 회의를 거치면서, 팀원들과 의견을 효율적으로 나누기 위해선 대화한 내용을 정리하고 기록하는 것이 중요하다는 것을 알았고 기획시에는 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.
                         </>
                     }/>
                     <Toggle summary={<>직접 컨택을 통해 외부 고등학교에서 한 달간 테스트 운영, 기숙사 관리 업체와의 미팅 및 피드백</>} detail={
@@ -106,7 +106,7 @@ export const DMS = ({imageOpen}) => {
                             <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 통신 문제 발생 지점을 빠르게 찾아내기 위해선 <b>네트워크에 대한 이해와 디버깅 능력</b>이 중요하다는 것을 느꼈고, network에서 subnet과 gateway의 역할 및 ip 구조에 대해 더 잘 이해할 수 있었습니다.
                         </>
                     }/>
-                    <Toggle summary="Terraform을 통해 EKS, S3, RDS 등 인프라 스펙 선언 및 관리" detail={
+                    <Toggle summary="Terraform을 통해 AWS, Cloudflare 등 인프라 스펙 선언 및 관리" detail={
                         <>
                             <Tab/>Terraform을 사용해 AWS, Cloudflare 인프라 요소를 코드로 선언하여 관리하였습니다. <br/> state 파일은 Terraform Cloud를 통해 저장합니다.
                             <a href="https://github.com/team-aliens/dms-infrastructure" target='_blank' rel="noopener noreferrer">
