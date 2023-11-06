@@ -1,5 +1,4 @@
 import { GithubText } from "../../components/IconText";
-import { DocumentText } from "../../components/IconText";
 import { ProjectBanner } from "../../components/ProjectBanner";
 import { Toggle } from "../../components/Toggle";
 import { ModalImage } from "../../components/ModalImage";
@@ -46,11 +45,10 @@ export const Xquare = ({imageOpen}) => {
                     </p>
                     <p className="relative self-stretch">
                     <Bold text="• EKS 환경 구축"/>
-
                     <div className="ml-[10px]">
                         <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
-                                <Tab/>인프라에 누가 언제 어떤 변경을 반영했는지 명시적으로 관리하고 기록하기 위해 GitOps 방식을 사용하였습니다. 기본적으로 설치되어야 하며 자주 변하지 않는 인프라 요소는 Chart를 정의한 뒤 Terraform으로 배포하고, 자주 변경되는 차트는 ArgoCD Application으로 정의하여 커밋시에 변경사항이 바로 적용되도록 했습니다.
+                                <Tab/>인프라에 누가 언제 어떤 변경을 반영했는지 명시적으로 관리하고 기록하기 위해 GitOps 방식을 사용하였습니다. 자주 변하지 않는 인프라 요소는 Chart Repository를 정의한 뒤 Terraform으로 배포하고, 나머지 Chart는 ArgoCD Application으로 정의하여 커밋시에 변경사항이 바로 적용되도록 했습니다.
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <a href="https://github.com/team-xquare/k8s-resource" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/k8s-resource"/>
@@ -64,8 +62,6 @@ export const Xquare = ({imageOpen}) => {
                             </>} detail={
                                 <>
                                     <Tab/>사용할 수 있는 예산이 적었고 프로젝트 갯수 변화에 따라 노드를 스케일 인/아웃할 수 있어야 했기에 가격이 저렴한 Spot Instance로 모든 노드를 구성하였습니다. 그러나 가격 변동으로 인해 불시에 내려가는 Spot의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다.<br/>
-                                    <Gap/>
-                                    <Gap/>
                                     <Gap/>
                                     문제를 개선하기 위해 크게 두가지 방법을 사용했습니다.<br/>
                                     1. <b>Karpenter</b>를 도입하여 새로운 노드를 신속하게 생성하도록 했습니다.<br/>
@@ -81,6 +77,7 @@ export const Xquare = ({imageOpen}) => {
                             }/>
                         </div>
                     </p>
+                    <Gap/>
                     <p className="relative self-stretch">
                     <Bold text="• 모니터링"/><br/>
                     <div className="ml-[10px]">
@@ -105,6 +102,7 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                     </div>
                     </p>
+                    <Gap/>
                     <p className="relative self-stretch">
                     <Bold text="• IaC"/><br/>
                     <div className="ml-[10px]">
@@ -157,7 +155,7 @@ export const Xquare = ({imageOpen}) => {
                 </p>
                 <p className="relative self-stretch">
                 <span>
-                    <Tab/>또, 모니터링을 통해 서버의 상태를 실시간으로 파악하거나, 상태를 면밀하게 살펴보고 기록하는 것이
+                    <Tab/>또, 모니터링을 통해 서버의 상태를 <b>실시간으로 파악</b>하거나 <b>기록해놓고 상태를 면밀하게 살펴보는 것</b>이
                     중요하다는 것을 느꼈습니다. Prometheus, loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에 빠르게 파악하여 조치할 수 있었습니다.
                     <br />
                 </span>
@@ -172,7 +170,7 @@ export const Xquare = ({imageOpen}) => {
                 </p>
                 <p className="relative self-stretch">
                 <span>
-                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 그 기술을 완전히 이해하고, 영향받는 부분이 없을지 꼼꼼히 살피고 고려해야겠다고 생각했습니다.
+                    <Tab/>앞으로는 기술을 도입하거나 인프라를 변경할 때 <b>기술을 완전히 이해하고, 영향받는 부분이 없을지</b> 꼼꼼히 살피고 고려해야겠다고 생각했습니다.
                 </span>
                 </p>
             </div>
