@@ -36,10 +36,10 @@ export const DMS = ({imageOpen}) => {
                     <Toggle summary="요구사항 수집 및 추가 기능 기획, 문서화" detail={
                         <>
                             <Tab/>프로젝트 요구사항 수집 및 기획 과정을 이끌었습니다. 설문조사와 인터뷰를 통해 요구사항을 수집하고 PRD와 기능명세서 등 문서를 작성하여 서비스의 기능을 팀원들과 함께 세밀하게 기획했습니다. <br/>
-                            <Tab/>기획을 위해 여러 회의를 거치면서, 팀원들과 의견을 효율적으로 나누기 위해선 대화한 내용을 정리하고 기록하는 것이 중요하다는 것을 알았고 기획시에는 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.
+                            <Tab/>기획을 위해 여러 회의를 거치면서, 팀원들과 의견을 효율적으로 나누기 위해선 <b>대화한 내용을 정리하고 기록</b>하는 것이 중요하다는 것을 알았고 기획시에는 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.
                         </>
                     }/>
-                    <Toggle summary={<>직접 컨택을 통해 외부 고등학교에서 한 달간 테스트 운영, 기숙사 관리 업체와의 미팅 및 피드백</>} detail={
+                    <Toggle summary={<>컨택을 통해 외부 고등학교에서 한 달간 테스트 운영, 기숙사 관리 업체와의 미팅 및 피드백</>} detail={
                         <>
                             <Tab/>DMS를 다른 학교에 적용하는 것을 목표로 서비스를 홍보하고, 기능소개서 및 가이드를 작성해 대상 고객에 서비스 사용 제안을 보냈습니다. 한 고등학교와 기숙사 관리 업체에 긍정적인 연락을 이었습니다.
                             <Gap/>
@@ -57,7 +57,7 @@ export const DMS = ({imageOpen}) => {
             <p className="relative self-stretch">
                 <Bold text="백엔드 개발"/>
                 <div className="ml-[10px]">
-                    <Toggle summary="자습실, 상벌점, 엑셀 출력, 알림 기능 DB 설계 및 api 개발" detail={
+                    <Toggle summary="자습실, 상벌점, 엑셀 업로드 및 출력, 알림 기능 DB 설계 및 api 개발" detail={
                         <>
                             <Gap/>여러 기능에 대한 DB Table을 설계하고 api 로직을 개발했습니다.<br/>
                             Detekt로 설정해놓은 lint 룰을 준수하고, MockK로 테스트코드를 작성했습니다.<br/>
@@ -81,7 +81,7 @@ export const DMS = ({imageOpen}) => {
                             </div>
                         </>
                     }/>
-                    <Toggle summary="UUID 기본값 삽입으로 인한 JPA 쿼리 방지로 api 성능 개선" detail={
+                    {/* <Toggle summary="UUID 기본값 삽입으로 인한 JPA 쿼리 방지로 api 성능 개선" detail={
                         <>
                             <Tab/>Id를 null이 아닌 필드로 선언하기 위해 초기 생성한 Id에 기본값으로 <code>UUID(0,0)</code>를 주입하는 코드가 있었는데, JPA persistable의 <code>isNew()</code>에서 해당 값을 기본값이 아닌 것으로 간주해 저장시 <code>merge</code> 가 호출되어 select 쿼리가 추가로 발생했습니다.<br/>
                             <Gap/>
@@ -92,7 +92,7 @@ export const DMS = ({imageOpen}) => {
                                 caption="수정한 BaseUUIDEntity의 모습"
                             />
                         </>
-                    }/>
+                    }/> */}
                 </div>
             </p>
             <Gap/>
