@@ -23,7 +23,7 @@ export const Footer = () => {
             </p>
             <div className="relative w-[134px] h-[24px] text-white whitespace-nowrap"> 010-7199-5931 </div>
 
-            <div className="relative w-[134px] h-[24px] text-white whitespace-nowrap"> v2023.10 </div>
+            <div className="relative w-[134px] h-[24px] text-white whitespace-nowrap"> v2023.11 </div>
           </div>
         </div>
       </div>

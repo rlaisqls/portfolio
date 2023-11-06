@@ -36,15 +36,15 @@ export const Xquare = ({imageOpen}) => {
                             GitHub Actions 기반 인프라 구성 자동화 및 ArgoCD 배포 파이프라인 제공
                         </>} detail={
                             <>
-                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가하고 지속적으로 배포하기 위해 드는 공수를 최소화</b>하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.
+                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하기 위해 드는 공수를 최소화하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.
                                 <Gap/>
-                                <ModalImage src="/img/description/deployment-action.png" className="h-[150px]" open={imageOpen}/>
+                                <ModalImage src="/img/description/deployment-action.png" className="h-[130px]" open={imageOpen}/>
                                 <Gap/><Gap/>
                             </>
                         }/>
-                        <Toggle summary="Golang을 사용해 배포 access key 발급 서버 개발" detail={
+                        <Toggle summary="Golang을 사용해 배포 Access key 발급 서버 개발" detail={
                             <>
-                                <Tab/>Action 실행을 위한 Access key를 발급, 인증하고 허가된 프로젝트 정보를 저장하는 백오피스 Restapi 서버를 개발했습니다.
+                                프로젝트를 관리하고 배포 Action을 위한 Access key를 발급하는 Restapi 서버를 개발했습니다.
                             </>
                         }/>
                     </div>
@@ -55,40 +55,41 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
-                                명령어를 통해 manifest나 chart를 설치하면 어떤 요소를 누가 수정했는지 파악하기 힘듭니다.<br/>
-                                따라서 GitOps 기반으로 인프라에 누가 언제 어떤 변경을 적용했는지 기록하기 위해 필요한 manifest를 chart로 정의한 뒤 Terraform, ArgoCD를 사용해 배포하였습니다.<br/>
+                                <Tab/>인프라에 누가 언제 어떤 변경을 적용했는지 명시적으로 관리하고 기록하기 위해, 필요한 manifest를 helm chart로 정의한 뒤 Terraform, ArgoCD를 사용해 배포하였습니다.<br/>
                                 <Gap/><Gap/>
 
-                                <a href="https://github.com/team-xquare/k8s-resource" target='_blank' rel="noopener noreferrer">
+                                
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                    <a href="https://github.com/team-xquare/k8s-resource" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/k8s-resource"/>
+                                    </a>
                                 </div>
-                                </a>
                             </>
                         }/>
                         <Toggle summary={
                             <>
-                                Spot instance node에서 downtime 없는 서버 운영을 위해 PDB와 커스텀한 NTH를 함께 사용<br/>
-                                (가용성 2%pt 개선, 약 97.9% → 99.95%)
+                                Spot instance node에서 가용성 문제 해결 (약 97.9% → 99.95%, 2%pt 개선)
                             </>} detail={
                                 <>
-                                    <Tab/>Xquare 인프라에서는 프로젝트 증가에 따라 노드를 스케일 아웃할 수 있어야 했고, 학교에서 지원해주는 예산의 한계가 있었기에 가격이 저렴한 <b>Spot Instance로 모든 노드를 구성</b>하였습니다.<br/>
-
-                                    <Tab/>가격 변동으로 인해 불시에 내려갈 수 있는 Spot Instance의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다. 예측할 수 없는 서버 정지로 인해 사용자들이 불편을 느끼는 상황이 잦았습니다.<br/>
+                                    <Tab/>예산의 한계가 있었고 프로젝트 증가에 따라 노드를 스케일 아웃할 수 있어야 했기에 가격이 저렴한 Spot Instance로 모든 노드를 구성하였습니다. 그러나 가격 변동으로 인해 불시에 내려가는 Spot의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다.<br/>
+                                    <Gap/>
+                                    <Tab/>이 문제를 개선하기 위해 <b>Karpenter</b>를 도입하여 새로운 노드를 신속하게 생성하도록 했습니다.<br/>
+                                    <Gap/>
+                                    <Tab/>최소 1개의 Pod가 활성 상태이도록 보장하는 <b>PDB</b>를 설정하고 <b>Node Termination Handler의 코드를 커스텀</b>하여, node 종료 직전에 replica 개수를 임시적으로 증가시킨 후 새로운 Pod가 트래픽을 받을 수 있을 때 다시 줄이는 블루/그린 배포를 구현했습니다.<br/>
+                                    <Gap/>
+                               
+                                    <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                        <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d?pvs=4" target='_blank' rel="noopener noreferrer">
+                                        <DocumentText text="자세한 과정에 대한 기술문서"/>
+                                        </a>
+                                    </div>
 
                                     <ModalImage
                                         src="/img/description/uptimia-dashboard.png"
-                                        className="h-[190px]" open={imageOpen}
+                                        className="h-[170px]" open={imageOpen}
                                         caption="Uptimia를 사용해 측정한 가용성 결과 대시보드"
                                     />
-
-                                    9월 한달 간 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선되었다는 것을 확인할 수 있었습니다. (분당 1회씩 health check용 api, url에 요청을 보내 측정)
-
-                                    <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d?pvs=4" target='_blank' rel="noopener noreferrer">
-                                    <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
-                                        <DocumentText text="자세한 과정에 대한 기술문서"/>
-                                    </div>
-                                    </a>
+                                    <Tab/>위와 같은 개선 후에 9월 한달 간 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선되었다는 것을 확인할 수 있었습니다. (분당 1회씩 health check용 url에 요청을 보내 측정)
                                 </>
                             }/>
                         </div>
@@ -98,15 +99,9 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="Istio로 내부 통신 추적, Envoy ext auth로 공통 토큰 인증을 위한 middleware 개발" detail={
                             <>
-                                서버 내부끼리 통신할 때 발생하는 트래픽을 관리하고 로그로 기록하기 위해 Istio를 사용하였습니다. istio-proxy 로그를 통해 pod별 요청 내역을 확인할 수 있어 서버 문제를 디버깅하기 수월했습니다.<br/>
-                                kiali dashboard를 사용해 통신 구조, 서버별 평균 응답시간을 쉽게 파악할 수 있도록 했습니다.
-                                <ModalImage
-                                    src="/img/description/kiali-dashboard.png"
-                                    className="h-[150px] mt-[10px]" open={imageOpen}
-                                    caption="Istio 통신 로그를 시각화한 kiali dashboard"
-                                />
-                                <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발했습니다. Authorization 헤더가 포함된 외부 트래픽이 들어오면 proxy에서 검증을 수행하고 유저 Id, role 정보를 담은 헤더를 추가합니다.<br/>
-                                <Tab/><code>testing</code> package로 로직에 대한 테스트코드를 작성했습니다.
+                                서버 내부끼리 통신할 때 발생하는 트래픽을 관리하고 로그로 기록하기 위해 Istio를 사용하였습니다.<br/>
+                                <Gap/>
+                                <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발하고 테스트코드를 작성했습니다.<br/>
                                 <a href="https://github.com/team-xquare/envoy-middleware" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <GithubText text="team-xquare/envoy-middleware"/>
@@ -116,12 +111,12 @@ export const Xquare = ({imageOpen}) => {
                                 <div className="flex flex-row gap-[10px]">
                                     <ModalImage
                                         src="/img/description/envoy-middleware-file-structure.png"
-                                        className="h-[200px]" open={imageOpen}
+                                        className="h-[130px]" open={imageOpen}
                                         caption="프로젝트 파일 구조"
                                     />
                                     <ModalImage
                                         src="/img/description/envoy-middleware-code.png"
-                                        className="h-[200px]" open={imageOpen}
+                                        className="h-[130px]" open={imageOpen}
                                         caption="프로젝트 코드 일부"
                                     />
                                 </div>
@@ -129,26 +124,10 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                         <Toggle summary="Loki 사용하여 로그 수집, Prometheus(+Thanos)로 매트릭 수집" detail={
                             <>
-                                <Tab/>Loki를 사용하여 로그를 수집하고 s3 storage에 저장합니다. 등록된 프로젝트를 개발하는 인원은 Oauth로 로그인하여 프로젝트의 로그 대시보드에 접근할 수 있도록 하였습니다.
+                                <Tab/>Loki를 사용하여 로그를 수집하고 s3 storage에 저장합니다. 등록된 프로젝트를 개발하는 인원은 Github Oauth로 로그인하여 프로젝트의 로그 대시보드에 접근할 수 있도록 하였습니다.
                                 <Gap/>
-                                <Tab/>Prometheus를 통해 CPU, memory 등의 매트릭을 수집하고, thanos로 s3 storage에 영구 저장하여 모니터링합니다. 리소스가 급격하게 많이 사용되는 경우 alertmanager를 통해 slack 알림을 받아 확인하고 서버 상태를 점검합니다.<br/>
+                                <Tab/>Prometheus로 CPU, memory 등의 매트릭을 수집하여 모니터링 하고, thanos를 통해 s3 storage에 저장합니다. 리소스가 급격하게 많이 사용되는 경우 alertmanager를 통해 slack 알림을 받아 확인하고 서버 상태를 점검합니다.<br/>
 
-                                <div className="flex flex-row gap-[10px]">
-                                    <div className="mt-[10px] mb-[5px]">
-                                        <ModalImage
-                                            src="/img/description/grafana-loki-dashboard.png"
-                                            className="h-[160px]" open={imageOpen}
-                                            caption="프로젝트의 로그를 나타내는 grafana 대시보드"
-                                        />
-                                    </div>
-                                    <div className="mt-[10px] mb-[5px]">
-                                        <ModalImage
-                                            src="/img/description/grafana-compute-resources.png"
-                                            className="h-[160px]" open={imageOpen}
-                                            caption="리소스 사용률을 나타내는 Grafana 대시보드"
-                                        />
-                                    </div>
-                                </div>
                             </>
                         }/>
                     </div>
@@ -161,11 +140,12 @@ export const Xquare = ({imageOpen}) => {
                                 <Tab/>Terraform을 사용해 VPC, EKS, S3, RDS, SQS, ElasticCache, IAM Role, ECR 등을 코드로<br/>
                                 선언하여 관리하고 있습니다. state 파일은 Terraform Cloud를 통해 저장합니다.<br/>
                                 필요한 리소스를 모듈화하여 중복 코드를 줄였습니다.
-                                <a href="https://github.com/team-xquare/xquare-infrastructure-global" target='_blank' rel="noopener noreferrer">
+                                
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                    <a href="https://github.com/team-xquare/xquare-infrastructure-global" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/xquare-infrastructure-global"/>
+                                    </a>
                                 </div>
-                                </a>
                             </>
                         }/>
                     </div>
@@ -205,9 +185,8 @@ export const Xquare = ({imageOpen}) => {
                 </p>
                 <p className="relative self-stretch">
                 <span>
-                    <Tab/>또, 모니터링을 통해 서버의 상태를 실시간으로 파악하거나, 면밀하게 살펴보고 기록하는 것이
-                    중요하다는 것을 느꼈습니다. Prometheus, loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에
-                    빠르게 파악하여 조치할 수 있었습니다.
+                    <Tab/>또, 모니터링을 통해 서버의 상태를 실시간으로 파악하거나, 상태를 면밀하게 살펴보고 기록하는 것이
+                    중요하다는 것을 느꼈습니다. Prometheus, loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에 빠르게 파악하여 조치할 수 있었습니다.
                     <br />
                 </span>
                 </p>
