@@ -156,7 +156,7 @@ export const Portfolio = () => {
                           <p>
                             겨울방학 기간에 Greeting을 개발하는 Doodlin에서 지원자 엑셀 벌크 등록 및 수정 기능을 개발하였습니다.<br />
                             프로덕트의 목표를 달성하기 위해 기능을 기획하고 구현하는 과정을 경험할 수 있었습니다.<br />
-                            excel 파싱시 메모리 부하 개선을 위해 apache poi sax 라이브러리를 사용해 엑셀 정보를 XML 형식으로 읽고 stream 처리하도록 구현하였습니다.
+                            excel 파싱시 메모리 부하 방지를 위해 apache poi sax 라이브러리를 사용해 엑셀 정보를 XML 형식으로 읽고 stream 처리하도록 구현했습니다.
                           </p>
                         </div>)
                     }

@@ -37,16 +37,14 @@ export const DMS = ({imageOpen}) => {
                         <>
                             프로젝트 요구사항 수집 및 기획 과정을 주도했습니다.<br/> 
                             <Gap/>
-                            <Tab/> 설문조사와 인터뷰를 통해 요구사항을 수집하였습니다. 기능에 대한 다양한 피드백을 받으며, 기획시에 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.<br/> 
-                            <Gap/>
-                            <Tab/> 요구사항을 바탕으로 PRD와 기능명세서 등 문서를 작성하여 서비스의 기능을 팀원들과 함께 세밀하게 기획해 나갔습니다. <br/> 
+                            <Tab/> 설문조사와 인터뷰를 통해 요구사항을 수집하고 기능에 대한 다양한 피드백을 받으며, 기획시에 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다. 요구사항을 바탕으로 PRD와 기능명세서 등 문서를 작성하여 서비스의 기능을 팀원들과 함께 세밀하게 기획해 나갔습니다. <br/> 
                         </>
                     }/>
                     <Toggle summary={<>외부 컨택 → 특정 고등학교에서 한 달간 테스트 운영, 기숙사 관리 업체와의 미팅 및 피드백</>} detail={
                         <>
                             <Tab/>'DMS를 다른 학교에 적용하는 것'을 목표로 서비스를 홍보하고, 학교 및 기업과 직접 소통하였습니다.
                             기능소개서 및 가이드를 작성하여 여러 대상 고객에 서비스 사용 제안을 보냈습니다. 이를 통해 한 고등학교와 기숙사 관리 업체에 긍정적인 연락을 이어갔습니다.<br/>
-                            <Tab/>현재는 보안 관리, 유지보수에 대한 우려로 프로젝트가 종료되었지만, 예상치 못한 상황이나 요구에 대한 다양한 해결방안을 찾는 능력을 기를 수 있었습니다.
+                            <Tab/>주어진 상황이나 요구에 대한 다양한 해결방안을 찾는 능력을 기를 수 있었습니다.
                             <Gap/>
                             <a href="https://teamaliens.notion.site/DMS-Dormitory-Management-System-1a1c2b14473845e5a36ce944f008a97f?pvs=4" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[2px] mb-[5px] h-[29px] w-fit rounded ">
@@ -75,14 +73,12 @@ export const DMS = ({imageOpen}) => {
                 <div className="ml-[10px]">
                     <Toggle summary="자습실, 상벌점, 엑셀 출력, 알림 기능 DB 설계 및 api 개발" detail={
                         <>
-                            아래와 같은 기능에 대한 DB Table을 설계하고 로직을 개발했습니다.<br/>
-                            Detekt로 설정해놓은 lint 룰을 준수했고, MockK로 테스트코드를 작성했습니다. 
-                            <Gap/>
-
+                            <Gap/>아래와 같은 기능에 대한 DB Table을 설계하고 로직을 개발했습니다.<br/>
+                            Detekt로 설정해놓은 lint 룰을 준수하고, MockK로 테스트코드를 작성하며 진행했습니다.
                             <div className="ml-[20px]">
                             - 자습실을 커스텀하여 생성하고 자리별로 신청하는 기능<br/>
                             - 상벌점을 관리하는 기능<br/>
-                            - 유저 정보를 엑셀로 등록하는 기능<br/>
+                            - 학생 정보를 엑셀로 등록하는 기능<br/>
                             - 자습실 신청 현황을 엑셀로 출력하는 기능<br/>
                             - 이벤트가 생길 시 알림을 전송하는 FCM 기능<br/>
                             </div>
@@ -90,14 +86,14 @@ export const DMS = ({imageOpen}) => {
                     }/>
                     <Toggle summary="효율적인 개발을 위한 아키텍처 리팩토링" detail={
                         <>
-                            <Tab/>팀원과 함께 아키텍처 재설계로 중복 로직을 줄이고, 테스트코드 작성이 수월하도록 개선하였습니다. <br/>
+                            <Tab/>아키텍처 재설계로 중복 로직을 줄이고, 테스트코드 작성이 수월하도록 개선하였습니다. <br/>
                             <Gap/>
                             <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 자주 생겼습니다.<br/>
                             <Gap/>
-                            <Tab/>새로운 아키텍처는 repository 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 묶는 계층을 추가하는 형태입니다. 공통적으로 검증되는 로직이나 여러번 비슷한 순서로 사용되는 쿼리들을 한 함수로 묶고, usecase를 Facade Pattern과 같은 형태로 구현할 수 있었습니다.
+                            <Tab/>따라서 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 묶는 계층을 추가하는 형태로 리팩토링했습니다. 공통적으로 검증되는 로직이나 여러번 비슷한 순서로 사용되는 쿼리들을 한 함수로 묶어 usecase를 Facade Pattern과 비슷한 형태로 구현할 수 있었습니다.
                             <ModalImage
                                 src="/img/description/dms-backend-architecture.png"
-                                className="h-[280px] mt-[10px]" open={imageOpen}
+                                className="h-[220px] mt-[10px]" open={imageOpen}
                                 caption="아키텍처 구조도"
                             />
                         </>
@@ -106,7 +102,7 @@ export const DMS = ({imageOpen}) => {
                         <>
                             <Tab/>새로운 Entity를 생성할 때 의도치 않게 발생하는 쿼리를 발견하여 개선하였습니다.<br/>
                             <Gap/>
-                            <Tab/>null이 아닌 필드로 선언하기 위해 초기 생성한 Id에 기본값으로 <code>UUID(0,0)</code>를 주입하는 코드가 있었는데, JPA persistable  의<code>isNew()</code>에서 해당 값을 기본값이 아닌 것으로 간주해 저장시 <code>merge</code> 가 호출되어 select 쿼리가 추가로 발생했습니다.<br/>
+                            <Tab/>Id를 null이 아닌 필드로 선언하기 위해 초기 생성한 Id에 기본값으로 <code>UUID(0,0)</code>를 주입하는 코드가 있었는데, JPA persistable  의<code>isNew()</code>에서 해당 값을 기본값이 아닌 것으로 간주해 저장시 <code>merge</code> 가 호출되어 select 쿼리가 추가로 발생했습니다.<br/>
                             <Gap/>
                             <Tab/> <code>UUID(0,0)</code> 값이 ID인 경우에 ID 필드를 null로 세팅하는 코드를 <code>BaseEntity</code>에 추가하여 문제를 해결했습니다. 새 Entity를 생성하는 모든 api에 영향을 끼쳤고, 많은 entity를 저장하는 자습실 저장 api에서 평균 응답 속도를 40% 이상 개선할 수 있었습니다. (<code>129ms</code> → <code>72ms</code>)
                             <ModalImage

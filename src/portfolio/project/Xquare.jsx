@@ -32,58 +32,19 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     <Bold text="• CI/CD"/><br />
                     <div className="ml-[10px]">
-                        <Toggle summary="Xquare 배포를 위한 Github Actions Template 개발" detail={
+                        <Toggle summary={<>
+                            GitHub Actions 기반 인프라 구성 자동화 및 ArgoCD 배포 파이프라인 제공
+                        </>} detail={
                             <>
-                                <Tab/>다른 동아리의 Repository에 있는 프로젝트를 한 인프라에 배포하기 위해 Github Actions을 사용하여 배포 파이프라인을 제작했습니다. ArgoCD, Terraform 등의 툴과 Shell 스크립트, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다. <br/>
-                                <Tab/>프로젝트 추가 및 CD 구축을 위해 드는 공수를 최소화합니다. 각 동아리는 액세스 키를 발급받으면 Github Actions을 통해 배포 파이프라인을 자유롭게 활용할 수 있습니다. 
+                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가하고 지속적으로 배포하기 위해 드는 공수를 최소화</b>하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.
                                 <Gap/>
-                                <ModalImage src="/img/description/deployment-action.png" open={imageOpen}/>
-                                <Tab/>Xquare 배포 액션을 사용해 배포할 때 수행되는 과정을 나타낸 도식입니다.<br/>
+                                <ModalImage src="/img/description/deployment-action.png" className="h-[150px]" open={imageOpen}/>
                                 <Gap/><Gap/>
-                                <Semibold text="1. Github Actions 실행"/>
-                                <TextSection text={<>
-                                    각 동아리는 xquare Action Template을 레포지토리의 Action에 적용합니다.<br/>
-                                    access key를 관리자에게 발급받아 input에 넣으면 Action Template을 실행할 수 있습니다.
-                                </>}/>
-                                <Semibold text="2. OIDC로 ECR, Secret Manager 권한 assume"/>
-                                <TextSection text={<>
-                                    Github Actions에 OIDC role을 assume하여 필요한 AWS 리소스에 접근하도록 합니다.
-                                </>}/>
-                                <Semibold text="3. 도커 이미지 빌드"/>
-                                <TextSection text={<>
-                                    도커로 이미지를 빌드합니다.
-                                </>}/>
-                                <Semibold text="4. ECR에 이미지 push"/>
-                                <TextSection text={<>
-                                    배포하려는 프로젝트에 대한 ECR이 존재하지 않는 경우 aws cli를 통해 우선 생성합니다.<br/>
-                                    이후 Terraform repository에서 import 하여 공통 설정을 추가하고 코드, state에 반영합니다.
-                                </>}/>
-                                <Semibold text="5. ArgoCD에 application 추가"/>
-                                <TextSection text={<>
-                                    ArgoCD repository가 Github Actions Dispatch를 통해 적용할 정보를 전달받고, yaml 파일에  ecr 레포지토리와 이미지 태그 정보를 담아 커밋합니다. 이후 ArgoCD의 ApplicationSet이 설정 파일 목록을 읽어 Application을 생성 혹은 수정합니다. 그러므로 Project를 쉽게 추가할 수 있고 구조 변경에 유연합니다.<br/>
-                                </>}/>
-                                <Semibold text="6. K8s Cluster에 반영"/>
-                                <TextSection text={<>
-                                    ArgoCD가 Application 정보에 대한 Pod와 Service를 업데이트합니다.
-                                </>}/>
                             </>
                         }/>
                         <Toggle summary="Golang을 사용해 배포 access key 발급 서버 개발" detail={
                             <>
-                                <Tab/>Action 실행을 위한 Access key를 발급, 인증하고 허가된 프로젝트 정보를 저장하는 백오피스 Restapi 서버를 개발했습니다. <code>net/http</code>, <code>go-gorm/gorm</code> 패키지를 사용하여 구현했습니다.
-                                <Gap/>
-                                <div className="flex flex-row gap-[10px]">
-                                    <ModalImage
-                                        src="/img/description/project-manager-file-structure.png"
-                                        className="h-[200px]" open={imageOpen}
-                                        caption="프로젝트 파일 구조"
-                                    />
-                                    <ModalImage
-                                        src="/img/description/project-manager-code.png"
-                                        className="h-[200px]" open={imageOpen}
-                                        caption="프로젝트 코드 일부"
-                                    />
-                                </div>
+                                <Tab/>Action 실행을 위한 Access key를 발급, 인증하고 허가된 프로젝트 정보를 저장하는 백오피스 Restapi 서버를 개발했습니다.
                             </>
                         }/>
                     </div>
@@ -92,30 +53,11 @@ export const Xquare = ({imageOpen}) => {
                     <Bold text="• EKS 환경 구축"/>
 
                     <div className="ml-[10px]">
-                        <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform으로 배포" detail={
+                        <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
                                 명령어를 통해 manifest나 chart를 설치하면 어떤 요소를 누가 수정했는지 파악하기 힘듭니다.<br/>
-                                GitOps 기반으로 누가 언제 어떤 변경을 적용했는지 기록하기 위해 아래와 같이 구성하였습니다.<br/>
+                                따라서 GitOps 기반으로 인프라에 누가 언제 어떤 변경을 적용했는지 기록하기 위해 필요한 manifest를 chart로 정의한 뒤 Terraform, ArgoCD를 사용해 배포하였습니다.<br/>
                                 <Gap/><Gap/>
-                                1. 기본적으로 설치되어야 하며 자주 변하지 않는 인프라 요소(istio, karpenter, argoCD 등)는<br/>
-                                <Tab/>Chart value를 override하여 정의한 뒤 Terraform을 통해 배포했습니다.<br/>
-
-
-                                <ModalImage
-                                    src="/img/description/helm-chart.png"
-                                    className="h-[280px] ml-[20px]" open={imageOpen}
-                                    caption="정의한 custom chart를 Terraform으로 배포하는 절차"
-                                />
-                                
-                                <Gap/>
-                                2. 자주 변경되는 차트는 ArgoCD Application으로 정의하여 커밋시에 변경사항이 바로 적용되도록<br/>
-                                <Tab/>했습니다. 차트에는 서버 설정을 위해 직접 작성한 manifest도 포함되어있습니다.
-
-                                <ModalImage
-                                    src="/img/description/argocd-resource.png"
-                                    className="ml-[20px]" open={imageOpen}
-                                    caption="리소스를 ArgoCD Application으로 등록한 모습"
-                                />
 
                                 <a href="https://github.com/team-xquare/k8s-resource" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
@@ -130,40 +72,16 @@ export const Xquare = ({imageOpen}) => {
                                 (가용성 2%pt 개선, 약 97.9% → 99.95%)
                             </>} detail={
                                 <>
-                                    <Tab/>Xquare 인프라에서는 프로젝트 증가에 따라 노드를 스케일링할 수 있어야 했고, 학교에서 지원해주는 예산의 한계가 있어 월 60만원 이상의 비용을 사용할 수 없었습니다. 따라서 가격이 저렴하고 인스턴스를 늘리고 줄이기 쉬운 Spot Instance로 모든 노드를 구성하였습니다.<br/>
+                                    <Tab/>Xquare 인프라에서는 프로젝트 증가에 따라 노드를 스케일 아웃할 수 있어야 했고, 학교에서 지원해주는 예산의 한계가 있었기에 가격이 저렴한 <b>Spot Instance로 모든 노드를 구성</b>하였습니다.<br/>
 
-                                    <Tab/>Spot Instance는 가격 변동으로 인해 불시에 내려갈 수 있는 특성이 있는데, node가 내려갈 때 마다 서버가 10분 이상 정지하는 현상이 발생했습니다. 예측할 수 없는 서버 정지로 인해 사용자들이 불편을 느끼는 상황이 잦았기에 이를 해결하기 위해 아래와 같은 방법을 사용했습니다.<br/>
-
-                                    <Gap/><Gap/>
-
-                                    <Semibold text="Karpenter"/>
-                                    
-                                    <TextSection text={<>
-                                        <Tab/>Karpenter는 ASG(자동 확장 그룹)를 사용할 때 긴 downtime 이 발생하는 문제를 해결하기 위해 도입했습니다. NTH가 cordon 되는 시점에 새로운 노드를 바로 생성할 수 있으며, ASG 보다 노드 생성 및 등록 시간이 짧아져 downtime을 줄일 수 있습니다.
-                                    </>}/>
-
-                                    <Gap/><Gap/>
-
-                                    <Semibold text="Node Termination Handler 커스터마이징"/>
-                                    <TextSection text={<>
-                                        <Tab/> PDB(Pod Disruption Budget) 설정 후 pod의 복제본(replica) 개수를 2개 이상으로 증가시키면 한 노드가 종료되더라도 downtime 없이 서버를 운영할 수 있습니다. 그러나 pod의 복제본을 2배로 증가시키면 추가적인 노드 비용 부담이 발생해 상황에 부적절했습니다.<br/>
-                                        <Tab/> node 종료 직전에 replica 개수를 임시적으로 증가시킨 후, 새로운 replica 서버를 생성해 트래픽을 받을 수 있을 때 다시 줄인다면 최소한의 리소스만 사용하면서 문제를 해결할 수 있다는 가설을 세웠습니다. Node Termination Handler의 코드를 커스텀하여 해당 동작을 구현함으로써 가용성을 향상시켰습니다.
-                                        <a href="https://github.com/team-xquare/node-termination-handler" target='_blank' rel="noopener noreferrer">
-                                        <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
-                                            <GithubText text="team-xquare/node-termination-handler"/>
-                                        </div>
-                                        </a>
-                                    </>}/>
-
-                                    <Gap/><Gap/>
+                                    <Tab/>가격 변동으로 인해 불시에 내려갈 수 있는 Spot Instance의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다. 예측할 수 없는 서버 정지로 인해 사용자들이 불편을 느끼는 상황이 잦았습니다.<br/>
 
                                     <ModalImage
                                         src="/img/description/uptimia-dashboard.png"
-                                        className="h-[280px]" open={imageOpen}
+                                        className="h-[190px]" open={imageOpen}
                                         caption="Uptimia를 사용해 측정한 가용성 결과 대시보드"
                                     />
 
-                                    <br/>
                                     9월 한달 간 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선되었다는 것을 확인할 수 있었습니다. (분당 1회씩 health check용 api, url에 요청을 보내 측정)
 
                                     <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d?pvs=4" target='_blank' rel="noopener noreferrer">
@@ -180,11 +98,11 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="Istio로 내부 통신 추적, Envoy ext auth로 공통 토큰 인증을 위한 middleware 개발" detail={
                             <>
-                                서버 내부끼리 통신할 떄 발생하는 트래픽을 관리하고 로그를 기록하기 위해 Istio를 사용하였습니다. istio-proxy 로그를 통해 pod별 요청 내역을 확인할 수 있어 서버 문제를 디버깅하기 수월했습니다.<br/>
+                                서버 내부끼리 통신할 때 발생하는 트래픽을 관리하고 로그로 기록하기 위해 Istio를 사용하였습니다. istio-proxy 로그를 통해 pod별 요청 내역을 확인할 수 있어 서버 문제를 디버깅하기 수월했습니다.<br/>
                                 kiali dashboard를 사용해 통신 구조, 서버별 평균 응답시간을 쉽게 파악할 수 있도록 했습니다.
                                 <ModalImage
                                     src="/img/description/kiali-dashboard.png"
-                                    className="h-[180px] mt-[10px]" open={imageOpen}
+                                    className="h-[150px] mt-[10px]" open={imageOpen}
                                     caption="Istio 통신 로그를 시각화한 kiali dashboard"
                                 />
                                 <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발했습니다. Authorization 헤더가 포함된 외부 트래픽이 들어오면 proxy에서 검증을 수행하고 유저 Id, role 정보를 담은 헤더를 추가합니다.<br/>
@@ -238,7 +156,7 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     <Bold text="• IaC"/><br/>
                     <div className="ml-[10px]">
-                        <Toggle summary="Terraform을 통해 EKS, S3, RDS 등 인프라 스펙 선언 및 관리" detail={
+                        <Toggle summary="Terraform을 통해 EKS, S3, RDS, IAM role 등 인프라 스펙 선언 및 관리" detail={
                             <>
                                 <Tab/>Terraform을 사용해 VPC, EKS, S3, RDS, SQS, ElasticCache, IAM Role, ECR 등을 코드로<br/>
                                 선언하여 관리하고 있습니다. state 파일은 Terraform Cloud를 통해 저장합니다.<br/>
