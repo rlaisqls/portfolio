@@ -245,12 +245,12 @@ export const Portfolio = () => {
                   elementInfo={"2022.12"}
                   description={"데이터모델링 기본 지식을 바탕으로, SQL 작성, 성능 최적화 등\n데이터베이스 개체 설계 및 구현 등에 대한 실무를 수행할 수 있습니다."}
                 />
-                <Element
+                {/* <Element
                   title={"정보처리기능사"}
                   subtitle={"한국산업인력공단"}
                   elementInfo={"2022.08"}
                   description={"소프트웨어 프로그램 설계, 개발, 유지 및 보수 등의 업무를 수행하기 위한 기본적인 지식을 갖추고 있습니다."}
-                />
+                /> */}
               </div>
             </div>
           </div>
