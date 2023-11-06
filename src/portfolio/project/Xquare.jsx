@@ -92,7 +92,7 @@ export const Xquare = ({imageOpen}) => {
                             <>
                                 서버 내부끼리 통신할 때 발생하는 트래픽을 관리하고 로그로 기록하기 위해 Istio를 사용합니다.<br/>
                                 <Gap/>
-                                <Tab/>프로젝트에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 위해 golang으로 <code>envoy external-auth</code>와 연결되는 grpc 서버와 테스트코드를 개발하였습니다.<br/>
+                                <Tab/>프로젝트에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 위해, golang으로 istio의 <code>envoy external-auth</code>와 연결되는 grpc 서버와 테스트코드를 개발하였습니다.<br/>
                                 <a href="https://github.com/team-xquare/envoy-middleware" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <GithubText text="team-xquare/envoy-middleware"/>

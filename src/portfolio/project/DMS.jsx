@@ -59,7 +59,7 @@ export const DMS = ({imageOpen}) => {
                 <div className="ml-[10px]">
                     <Toggle summary="자습실, 상벌점, 엑셀 출력, 알림 기능 DB 설계 및 api 개발" detail={
                         <>
-                            <Gap/>여러 기능에 대한 DB Table을 설계하고 로직을 개발했습니다.<br/>
+                            <Gap/>여러 기능에 대한 DB Table을 설계하고 api 로직을 개발했습니다.<br/>
                             Detekt로 설정해놓은 lint 룰을 준수하고, MockK로 테스트코드를 작성했습니다.<br/>
                             팀원 간 코드리뷰를 통해 코드에 대한 의견을 적극적으로 나누고 토의하였습니다.
                         </>
