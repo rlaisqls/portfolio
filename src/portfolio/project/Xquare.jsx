@@ -60,7 +60,7 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                         <Toggle summary={
                             <>
-                                Spot instance node에서 가용성 문제 해결 <b>(약 97.9% → 99.95%, 2%pt 개선)</b>
+                                Spot instance node에서 가용성 문제 해결 (약 97.9% → 99.95%, 2%pt 개선)
                             </>} detail={
                                 <>
                                     <Tab/>사용할 수 있는 예산이 적었고 프로젝트 갯수 변화에 따라 노드를 스케일 인/아웃할 수 있어야 했기에 가격이 저렴한 Spot Instance로 모든 노드를 구성하였습니다. 그러나 가격 변동으로 인해 불시에 내려가는 Spot의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다.<br/>

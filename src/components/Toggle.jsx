@@ -17,6 +17,9 @@ export const Toggle = ({summary, detail}) => {
         </div>
         </details>
         <style jsx>{`
+            summary {
+                pointer-events: none;
+            }
             details .arrow {
                 transform: rotate(270deg);
             }
