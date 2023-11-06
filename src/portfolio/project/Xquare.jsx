@@ -16,7 +16,7 @@ export const Xquare = ({imageOpen}) => {
                 </div>
 
                 <p className="relative">
-                    여러 동아리에서 진행하는 프로젝트를 한 인프라에서 통합하여 관리하기 위한 프로젝트입니다.<br/>통합 인프라를 통해 많은 학생들이 서버 성능이나 관리, 비용 부담 없이 프로젝트를 배포하고 사용할 수 있도록 하는 것이 목적입니다. 현재 5개 동아리에서 6개의 서비스, 28개의 프로젝트(56개의 Pod)를 배포해 운영중입니다.
+                    여러 동아리에서 진행하는 프로젝트를 한 인프라에서 통합하여 관리하기 위한 프로젝트입니다.<br/>통합 인프라를 통해 많은 학생들이 서버 성능이나 관리, 비용 부담 없이 프로젝트를 배포하고 사용할 수 있도록 하는 것이 목적입니다.<br/>현재 5개 동아리에서 6개의 서비스, 28개의 프로젝트(56개의 Pod)를 배포해 운영 중이며, 교내 선생님과 학생을 포함한 약 250명의 유저가 배포된 서비스를 사용하고 있습니다.
                 </p>
                 </div>
 
@@ -47,9 +47,9 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     <Bold text="EKS 환경 구축"/>
                     <div className="ml-[10px]">
-                        <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform, ArgoCD로 배포" detail={
+                        <Toggle summary="필요한 k8s 리소스를 Helm Chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
-                                <Tab/>인프라에 누가 언제 어떤 변경을 반영했는지 명시적으로 관리하고 기록하기 위해 GitOps 방식을 사용하였습니다. 자주 변하지 않는 인프라 요소는 Chart Repository를 정의한 뒤 Terraform으로 배포하고, 나머지 Chart는 ArgoCD Application으로 정의하여 커밋시에 변경사항이 바로 적용되도록 했습니다.
+                                <Tab/>인프라에 누가 언제 어떤 변경을 반영했는지 명시적으로 관리하고 기록하기 위해 GitOps 방식을 사용하였습니다. 자주 변하지 않는 인프라 요소는 Terraform으로 배포하고, 나머지 Chart는 ArgoCD Application으로 정의하여 커밋시에 변경사항이 바로 적용되도록 했습니다.
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <a href="https://github.com/team-xquare/k8s-resource" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/k8s-resource"/>
@@ -92,8 +92,7 @@ export const Xquare = ({imageOpen}) => {
                             <>
                                 서버 내부끼리 통신할 때 발생하는 트래픽을 관리하고 로그로 기록하기 위해 Istio를 사용하였습니다.<br/>
                                 <Gap/>
-                                <Tab/>프로젝트에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 위해 envoy external-auth와 연동되는<br/>
-                                grpc 서버와 테스트코드를 golang으로 개발하였습니다.<br/>
+                                <Tab/>프로젝트에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 위해 golang으로 <code>envoy external-auth</code>와 연결되는 grpc 서버와 테스트코드를 개발하였습니다.<br/>
                                 <a href="https://github.com/team-xquare/envoy-middleware" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <GithubText text="team-xquare/envoy-middleware"/>
