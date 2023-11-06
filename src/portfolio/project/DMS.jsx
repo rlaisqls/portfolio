@@ -67,16 +67,15 @@ export const DMS = ({imageOpen}) => {
                     <Toggle summary="효율적인 개발을 위한 아키텍처 리팩토링" detail={
                         <>
                             <div className="flex flex-row gap-[10px]">
-                                <div className="w-[480px]">
-                                    <Tab/>아키텍처 재설계로 중복 로직을 줄이고, 도메인별로 필요한 로직을 일관적으로 유지할 수 있도록 개선했습니다. <br/>
+                                <div className="w-[440px]">
+                                    <Tab/>아키텍처 재설계로 중복 로직을 줄이고 코드를 간결하게 개선했습니다. <br/>
                                     <Gap/>
-                                    <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 생겼습니다.  <br/>
-                                    <Tab/> 따라서 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 정의하는 중간 계층을 추가하는 형태로 리팩토링했습니다. <br/>
+                                    <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 생겼습니다. Repository 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 정의하는 중간 계층을 추가하는 형태로 리팩토링하였습니다. <br/>
                                     <Gap/>
                                 </div>
                                 <ModalImage
-                                    src="/img/description/dms-backend-architecture.png"
-                                    className="h-[145px] mt-[0px]" open={imageOpen}
+                                    src="/img/description/dms-architecture.png"
+                                    className="h-[140px] mt-[0px]" open={imageOpen}
                                     caption="리팩토링 후 아키텍처"
                                 />
                             </div>
@@ -102,15 +101,14 @@ export const DMS = ({imageOpen}) => {
                 <div className="ml-[10px]">
                     <Toggle summary="Docker gateway Missing 이슈 해결" detail={
                         <>
-                            <Tab/>Spring 서버와 MySQL, Redis를 도커 네트워크 bridge로 연결하고 DB는 해당 내부 ip로만 통신하도록 하여 DB의 외부 노출을 줄이려 했으나, 작업 중 기본 bridge 네트워크의 gateway가 사라져 외부에서 container에 접근이 불가능한 이슈가 발생했습니다.<br/>
+                            <Tab/>Spring 서버와 MySQL, Redis를 도커 네트워크 bridge로 연결하고 DB는 해당 내부 ip로만 통신하도록 하여 DB의 외부 노출을 줄이려 하였고, 작업 중 기본 bridge 네트워크의 gateway가 사라져 외부에서 container에 접근이 불가능한 이슈가 발생했습니다.<br/>
                             <Gap/>
-                            <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 이 이슈를 통해 통신 문제 발생 지점을 빠르게 찾아내기 위해선 <b>네트워크에 대한 이해와 디버깅 능력</b>이 중요하다는 것을 느꼈고, network에서 subnet과 gateway의 역할 및 ip 구조에 대해 더 잘 이해할 수 있었습니다.
+                            <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 통신 문제 발생 지점을 빠르게 찾아내기 위해선 <b>네트워크에 대한 이해와 디버깅 능력</b>이 중요하다는 것을 느꼈고, network에서 subnet과 gateway의 역할 및 ip 구조에 대해 더 잘 이해할 수 있었습니다.
                         </>
                     }/>
                     <Toggle summary="Terraform을 통해 EKS, S3, RDS 등 인프라 스펙 선언 및 관리" detail={
                         <>
-                            <Tab/>Terraform을 사용해 EC2, S3, Cloudflare pages 등 인프라 요소를 코드로<br/>
-                            선언하여 관리하였습니다. state 파일은 Terraform Cloud를 통해 저장합니다.
+                            <Tab/>Terraform을 사용해 AWS, Cloudflare 인프라 요소를 코드로 선언하여 관리하였습니다. <br/> state 파일은 Terraform Cloud를 통해 저장합니다.
                             <a href="https://github.com/team-aliens/dms-infrastructure" target='_blank' rel="noopener noreferrer">
                             <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                 <GithubText text="team-aliens/dms-infrastructure"/>
