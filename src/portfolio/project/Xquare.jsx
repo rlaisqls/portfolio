@@ -3,7 +3,7 @@ import { DocumentText } from "../../components/IconText";
 import { ProjectBanner } from "../../components/ProjectBanner";
 import { Toggle } from "../../components/Toggle";
 import { ModalImage } from "../../components/ModalImage";
-import { Bold, Semibold, Tab, Gap, TextSection } from "../../components/Text";
+import { Bold, Tab, Gap } from "../../components/Text";
 
 export const Xquare = ({imageOpen}) => {
     return (
@@ -71,7 +71,7 @@ export const Xquare = ({imageOpen}) => {
                                 Spot instance node에서 가용성 문제 해결 (약 97.9% → 99.95%, 2%pt 개선)
                             </>} detail={
                                 <>
-                                    <Tab/>예산의 한계가 있었고 프로젝트 증가에 따라 노드를 스케일 아웃할 수 있어야 했기에 가격이 저렴한 Spot Instance로 모든 노드를 구성하였습니다. 그러나 가격 변동으로 인해 불시에 내려가는 Spot의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다.<br/>
+                                    <Tab/>사용할 수 있는 예산의 한계가 있었고 프로젝트 증가에 따라 노드를 스케일 아웃할 수 있어야 했기에 가격이 저렴한 Spot Instance로 모든 노드를 구성하였습니다. 그러나 가격 변동으로 인해 불시에 내려가는 Spot의 특성 때문에 서버가 비주기적으로 <b>10분 이상 정지하는 현상</b>이 발생했습니다.<br/>
                                     <Gap/>
                                     <Tab/>이 문제를 개선하기 위해 <b>Karpenter</b>를 도입하여 새로운 노드를 신속하게 생성하도록 했습니다.<br/>
                                     <Gap/>
@@ -89,7 +89,7 @@ export const Xquare = ({imageOpen}) => {
                                         className="h-[170px]" open={imageOpen}
                                         caption="Uptimia를 사용해 측정한 가용성 결과 대시보드"
                                     />
-                                    <Tab/>위와 같은 개선 후에 9월 한달 간 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선되었다는 것을 확인할 수 있었습니다. (분당 1회씩 health check용 url에 요청을 보내 측정)
+                                    <Tab/>위 작업 후에 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선됐다는 것을 알 수 있었습니다. (한달 간, 분당 1회씩 health check용 url에 요청을 보내 측정)
                                 </>
                             }/>
                         </div>
@@ -101,7 +101,7 @@ export const Xquare = ({imageOpen}) => {
                             <>
                                 서버 내부끼리 통신할 때 발생하는 트래픽을 관리하고 로그로 기록하기 위해 Istio를 사용하였습니다.<br/>
                                 <Gap/>
-                                <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버를 개발하고 테스트코드를 작성했습니다.<br/>
+                                <Tab/>xquare에서 공통으로 쓰이는 유저 토큰에 대한 파싱을 수행하기 위해 golang으로 envoy <code>external-auth</code> 서버와 테스트코드를 개발했습니다.<br/>
                                 <a href="https://github.com/team-xquare/envoy-middleware" target='_blank' rel="noopener noreferrer">
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <GithubText text="team-xquare/envoy-middleware"/>
@@ -124,9 +124,7 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                         <Toggle summary="Loki 사용하여 로그 수집, Prometheus(+Thanos)로 매트릭 수집" detail={
                             <>
-                                <Tab/>Loki를 사용하여 로그를 수집하고 s3 storage에 저장합니다. 등록된 프로젝트를 개발하는 인원은 Github Oauth로 로그인하여 프로젝트의 로그 대시보드에 접근할 수 있도록 하였습니다.
-                                <Gap/>
-                                <Tab/>Prometheus로 CPU, memory 등의 매트릭을 수집하여 모니터링 하고, thanos를 통해 s3 storage에 저장합니다. 리소스가 급격하게 많이 사용되는 경우 alertmanager를 통해 slack 알림을 받아 확인하고 서버 상태를 점검합니다.<br/>
+                                <Tab/>Loki를 사용하여 로그를 수집 및 저장, Prometheus로 CPU, memory 등의 매트릭을 수집하고 thanos를 통해 S3 storage에 저장합니다. 리소스가 급격하게 많이 사용되는 경우 alertmanager를 통해 slack 알림을 받아 확인하고 서버 상태를 점검합니다.<br/>
 
                             </>
                         }/>

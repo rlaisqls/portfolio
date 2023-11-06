@@ -4,15 +4,15 @@ export const Toggle = ({summary, detail}) => {
   return (
     <>
         <details open>
-        <summary className="m-0 p-0">
+        <summary>
             <div className="flex flex-row gap-[5px]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow mt-[6px]">
+                {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow mt-[6px]">
                     <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-                <p class="summarytext">{summary}</p>
+                </svg> */}
+                <p class="summarytext">• {summary}</p>
             </div>
         </summary>
-        <div className="ml-[20px] mb-[10px]">
+        <div className="ml-[13px] mb-[10px]">
             {detail}
         </div>
         </details>
@@ -35,7 +35,7 @@ export const Toggle = ({summary, detail}) => {
                 transition: margin 150ms ease-out;
             }
             details[open] summary {
-                margin-bottom: 10px;
+                margin-bottom: 2px;
             }
         `}
         </style>
