@@ -39,7 +39,11 @@ export const Xquare = ({imageOpen}) => {
                                 <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하기 위해 드는 공수를 최소화하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.
                                 <Gap/>
                                 <ModalImage src="/img/description/deployment-action.png" className="h-[130px]" open={imageOpen}/>
-                                <Gap/><Gap/>
+                                <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                    <a href="https://github.com/team-xquare/xquare-deployment-action" target='_blank' rel="noopener noreferrer">
+                                    <GithubText text="team-xquare/xquare-deployment-action"/>
+                                    </a>
+                                </div>
                             </>
                         }/>
                     </div>
