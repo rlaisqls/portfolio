@@ -35,11 +35,11 @@ export const DMS = ({imageOpen}) => {
                 <div className="ml-[10px]">
                     <Toggle summary="요구사항 수집 및 추가 기능 기획, 문서화" detail={
                         <>
-                            프로젝트 요구사항 수집 및 기획 과정을 이끌었습니다. 설문조사와 인터뷰를 통해 요구사항을 수집하고 PRD와 기능명세서 등 문서를 작성하여 서비스의 기능을 팀원들과 함께 세밀하게 기획했습니다. <br/>
-                            기획시에 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.
+                            <Tab/>프로젝트 요구사항 수집 및 기획 과정을 이끌었습니다. 설문조사와 인터뷰를 통해 요구사항을 수집하고 PRD와 기능명세서 등 문서를 작성하여 서비스의 기능을 팀원들과 함께 세밀하게 기획했습니다. <br/>
+                            <Tab/>기획을 위해 여러 회의를 거치면서 팀원들과 효율적으로 의견 나누는 법을 배웠고, 기획시에는 사용자가 정말로 원하는 것이 무엇일지 끊임없이 고려해야한다는 것을 몸소 느꼈습니다.
                         </>
                     }/>
-                    <Toggle summary={<>외부 컨택 → 특정 고등학교에서 한 달간 테스트 운영, 기숙사 관리 업체와의 미팅 및 피드백</>} detail={
+                    <Toggle summary={<>직접 컨택을 통해 외부 고등학교에서 한 달간 테스트 운영, 기숙사 관리 업체와의 미팅 및 피드백</>} detail={
                         <>
                             <Tab/>DMS를 다른 학교에 적용하는 것을 목표로 서비스를 홍보하고, 기능소개서 및 가이드를 작성해 대상 고객에 서비스 사용 제안을 보냈습니다. 한 고등학교와 기숙사 관리 업체에 긍정적인 연락을 이었습니다.
                             <Gap/>
@@ -59,22 +59,24 @@ export const DMS = ({imageOpen}) => {
                     <Toggle summary="자습실, 상벌점, 엑셀 출력, 알림 기능 DB 설계 및 api 개발" detail={
                         <>
                             <Gap/>여러 기능에 대한 DB Table을 설계하고 로직을 개발했습니다.<br/>
-                            Detekt로 설정해놓은 lint 룰을 준수하고, MockK로 테스트코드를 작성하며 진행했습니다.
+                            Detekt로 설정해놓은 lint 룰을 준수하고, MockK로 테스트코드를 작성했습니다.<br/>
+                            팀원 간 코드리뷰를 통해 코드에 대한 의견을 적극적으로 나누고 토의하였습니다.
                         </>
                     }/>
                     <Toggle summary="효율적인 개발을 위한 아키텍처 리팩토링" detail={
                         <>
-                            <div className="flex flex-row gap-[5px]">
-                                <div className="w-[510px]">
-                                    <Tab/>아키텍처 재설계로 중복 로직을 줄이고, 테스트코드 작성이 수월하도록 개선하였습니다. <br/>
+                            <div className="flex flex-row gap-[10px]">
+                                <div className="w-[480px]">
+                                    <Tab/>아키텍처 재설계로 중복 로직을 줄이고, 도메인별로 필요한 로직을 일관적으로 유지할 수 있도록 개선했습니다. <br/>
                                     <Gap/>
-                                    <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 생겼습니다. 따라서 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 묶는 계층을 추가하는 형태로 리팩토링했습니다. <br/>
+                                    <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 생겼습니다.  <br/>
+                                    <Tab/> 따라서 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 정의하는 중간 계층을 추가하는 형태로 리팩토링했습니다. <br/>
                                     <Gap/>
                                 </div>
                                 <ModalImage
                                     src="/img/description/dms-backend-architecture.png"
-                                    className="h-[170px] mt-[10px]" open={imageOpen}
-                                    caption="아키텍처 구조도"
+                                    className="h-[145px] mt-[0px]" open={imageOpen}
+                                    caption="리팩토링 후 아키텍처"
                                 />
                             </div>
                         </>
@@ -99,7 +101,7 @@ export const DMS = ({imageOpen}) => {
                 <div className="ml-[10px]">
                     <Toggle summary="Docker gateway Missing 이슈 해결" detail={
                         <>
-                            <Tab/>Spring 서버와 MySQL, Redis를 bridge 도커 네트워크로 연결하고 DB는 해당 내부 ip로만 통신하도록 하여 DB의 외부 노출을 줄이려 했으나, 작업 중 network gateway가 사라져 bridge에 연결되어있는 container에 외부에서 접근이 불가능한 이슈가 발생했습니다.<br/>
+                            <Tab/>Spring 서버와 MySQL, Redis를 도커 네트워크 bridge로 연결하고 DB는 해당 내부 ip로만 통신하도록 하여 DB의 외부 노출을 줄이려 했으나, 작업 중 기본 bridge 네트워크의 gateway가 사라져 외부에서 container에 접근이 불가능한 이슈가 발생했습니다.<br/>
                             <Gap/>
                             <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 이 이슈를 통해 통신 문제 발생 지점을 빠르게 찾아내기 위해선 네트워크에 대한 이해와 디버깅 능력이 중요하다는 것을 느꼈고, network에서 subnet과 gateway의 역할 및 ip 구조에 대해 더 잘 이해할 수 있었습니다.
                         </>
