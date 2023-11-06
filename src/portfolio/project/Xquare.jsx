@@ -16,7 +16,7 @@ export const Xquare = ({imageOpen}) => {
                 </div>
 
                 <p className="relative">
-                    여러 동아리에서 진행하는 프로젝트를 한 인프라에서 통합하여 관리하기 위한 프로젝트입니다.<br/>통합 인프라를 통해 많은 학생들이 서버 성능이나 관리, 비용 부담 없이 프로젝트를 배포하고 사용할 수 있도록 하는 것이 목적입니다.<br/>현재 5개 동아리에서 6개의 서비스, 28개의 프로젝트(56개의 Pod)를 배포해 운영 중이며, 교내 선생님과 학생을 포함한 약 250명의 유저가 배포된 서비스를 사용하고 있습니다.
+                    여러 동아리에서 진행하는 프로젝트를 한 인프라에서 통합하여 관리하기 위한 프로젝트입니다.<br/>PaaS 형태의 통합 인프라를 통해 많은 학생들이 서버 성능이나 관리, 비용 부담 없이 프로젝트를 배포하고 사용할 수 있도록 하는 것이 목적입니다.<br/>현재 5개 동아리에서 6개의 서비스, 28개의 프로젝트(56개의 Pod)를 배포해 운영 중이며, 교내 선생님과 학생을 포함한 약 250명의 유저가 배포된 서비스를 사용하고 있습니다.
                 </p>
                 </div>
 
@@ -36,7 +36,8 @@ export const Xquare = ({imageOpen}) => {
                             GitHub Actions 기반 인프라 구성 자동화 및 ArgoCD 배포 파이프라인 제공
                         </>} detail={
                             <>
-                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하기 위해 드는 공수를 최소화하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.
+                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하기 위해 드는 공수를 최소화하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.<br/>
+                                <Tab/>각 동아리가 폼을 통해 신청하면 golang으로 개발된 백오피스 서버를 통해 DB 계정과 액세스 키를 <br/>발급받아 Github Actions 배포 파이프라인을 자유롭게 활용할 수 있습니다.
                                 <Gap/>
                                 <ModalImage src="/img/description/deployment-action.png" className="h-[130px]" open={imageOpen}/>
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
@@ -53,7 +54,10 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="필요한 k8s 리소스를 Helm Chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
-                                <Tab/>인프라에 언제 어떤 변경이 반영되었는지 기록, 관리하기 위해 GitOps 방식을 사용했습니다.
+                                <Tab/>인프라에 언제 어떤 변경이 반영되었는지 기록, 관리하기 위해 GitOps 방식을 사용했습니다.<br/>
+                                <Gap/>
+                                1. 기본적으로 설치되어야 하며 자주 변하지 않는 인프라 요소는 Chart Repository를 정의한 뒤 Terraform을 통해 배포했습니다.<br/>
+                                2. 자주 변경되는 차트는 ArgoCD Application으로 정의하여 커밋시에 바로 적용되도록 했습니다.
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <a href="https://github.com/team-xquare/k8s-resource" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/k8s-resource"/>
@@ -63,7 +67,7 @@ export const Xquare = ({imageOpen}) => {
                         }/>
                         <Toggle summary={
                             <>
-                                Spot instance node에서 가용성 문제 해결 (약 97.9% → 99.95%, 2%pt 개선)
+                                Spot instance node에서 가용성 문제 해결 (약 97.9% → 99.95%)
                             </>} detail={
                                 <>
                                     <Tab/>사용할 수 있는 예산이 적었으나 프로젝트 수 변동에 따라 노드를 자유롭게 스케일 인/아웃할 수 있어야 했기에, 가격이 저렴한 Spot Instance로 모든 노드를 구성했습니다. 그러나 Spot instance의 특성으로 노드가 불시에 내려가 서버 작동이 <b>비주기적으로 10분 이상 정지</b>하는 현상이 발생했습니다.<br/>
@@ -107,6 +111,31 @@ export const Xquare = ({imageOpen}) => {
                         <Toggle summary="Loki, Prometheus(+Thanos)로 로그 및 매트릭 수집" detail={
                             <>
                                 <Tab/>Loki를 사용하여 로그를 수집 및 저장하고, Prometheus로 CPU, memory 등의 매트릭을 수집해 thanos를 통해 S3 storage에 저장합니다. 에러 로그가 발생하거나 리소스가 급격하게 많이 사용되는 경우 지정된 rule에 따라 alertmanager로 slack 알림을 받아 확인 및 점검합니다.
+
+                                <div className="flex flex-row gap-[10px]">
+                                    <div className="mt-[10px] mb-[5px]">
+                                        <ModalImage
+                                            src="/img/description/grafana-loki-dashboard.png"
+                                            className="h-[150px]" open={imageOpen}
+                                            caption="프로젝트의 로그를 나타내는 grafana 대시보드"
+                                        />
+                                    </div>
+                                    <div className="mt-[10px] mb-[5px]">
+                                        <ModalImage
+                                            src="/img/description/grafana-compute-resources.png"
+                                            className="h-[150px]" open={imageOpen}
+                                            caption="리소스 사용률을 나타내는 Grafana 대시보드"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                    <a href="https://team-xquare.notion.site/DevOps-a8693ce0928c465db3a1e598473dda6f?p=049f6f1c1a4e4a35b767f8a17036fcf3&pm=s" target='_blank' rel="noopener noreferrer">
+                                    <DocumentText text="모니터링 툴 설정 구조에 대한 기술 문서"/>
+                                    </a>
+                                </div>
+
+                                
                             </>
                         }/>
                     </div>

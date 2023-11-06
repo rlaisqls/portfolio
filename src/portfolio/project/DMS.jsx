@@ -72,10 +72,15 @@ export const DMS = ({imageOpen}) => {
                                     <Gap/>
                                     <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 생겼습니다. Repository 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 정의하는 중간 계층을 추가하는 형태로 리팩토링하였습니다. <br/>
                                     <Gap/>
+                                    <a href="https://github.com/team-aliens/DMS-Backend" target='_blank' rel="noopener noreferrer">
+                                        <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                            <GithubText text="백엔드 레포지토리"/>
+                                        </div>
+                                    </a>
                                 </div>
                                 <ModalImage
                                     src="/img/description/dms-architecture.png"
-                                    className="h-[140px] mt-[0px]" open={imageOpen}
+                                    className="h-[180px] mt-[0px]" open={imageOpen}
                                     caption="리팩토링 후 아키텍처"
                                 />
                             </div>
@@ -104,6 +109,11 @@ export const DMS = ({imageOpen}) => {
                             <Tab/>Spring 서버와 MySQL, Redis를 도커 네트워크 bridge로 연결하고 DB는 해당 내부 ip로만 통신하도록 하여 DB의 외부 노출을 줄이려 하였고, 작업 중 기본 bridge 네트워크의 gateway가 사라져 외부에서 container에 접근이 불가능한 이슈가 발생했습니다.<br/>
                             <Gap/>
                             <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 통신 문제 발생 지점을 빠르게 찾아내기 위해선 <b>네트워크에 대한 이해와 디버깅 능력</b>이 중요하다는 것을 느꼈고, network에서 subnet과 gateway의 역할 및 ip 구조에 대해 더 잘 이해할 수 있었습니다.
+                            <ModalImage
+                                src="/img/description/docker-gateway-missing.png"
+                                className="h-[170px] mt-[10px]" open={imageOpen}
+                                caption="docker network inspect 결과에 gateway가 없는 모습"
+                            />
                         </>
                     }/>
                     <Toggle summary="Terraform을 통해 AWS, Cloudflare 등 인프라 스펙 선언 및 관리" detail={
@@ -141,7 +151,7 @@ export const DMS = ({imageOpen}) => {
 
             <div className="flex flex-col items-start gap-[9px]">
             <p className="relative self-stretch">
-                <Tab/>고등학교와 기숙사 관리 업체에 서비스를 운영할 기회가 있었으나, 여러 이유로 인해 성사되지 못한 점이 아쉽습니다. 학생 신분으로 인한 제약 때문에 목표 달성을 위한 대안을 시도하지 못했던 것도 일부 원인이지만 더 근본적인 문제는 잠재적인 문제점에 대해 미리 파악하고 시작하지 않은 점이었다고 생각합니다. 비용을 아끼기 위해선 초기 단계에서 <b>여러 시나리오를 고려하는 것</b>이 중요하다는 걸 깨달았으며 예상치 못한 어려움에 부딪혔을 때 <b>새로운 방향을 탐색하고 대응할 수 있는 유연성</b> 또한 필요함을 알게 되었습니다.
+                <Tab/>고등학교와 기숙사 관리 업체에 서비스를 운영할 기회가 있었으나, 보안과 유지보수 책임 문제로 인해 성사되지 못한 점이 아쉽습니다. 학생 신분으로 인한 제약 때문에 목표 달성을 위한 대안을 시도하지 못했던 것도 일부 원인이지만 더 근본적인 문제는 잠재적인 문제점에 대해 미리 파악하고 시작하지 않은 점이었다고 생각합니다. 비용을 아끼기 위해선 초기 단계에서 <b>여러 시나리오를 고려하는 것</b>이 중요하다는 걸 깨달았으며 예상치 못한 어려움에 부딪혔을 때 <b>새로운 방향을 탐색하고 대응할 수 있는 유연성</b> 또한 필요함을 알게 되었습니다.
             </p>
             <p className="relative self-stretch">
                 <Tab/>프로젝트를 성공적으로 진행하기 위해선 팀원 각자가 <b>지향하는 목표</b>가 일치될 수 있도록 이끄는 것이 중요하다는 것을 알았습니다. 리더인 저조차도 진행에 있어 불확실함이 크다고 느꼈기에 구체적인 비전을 제시할 수 없었고, 그것이 팀원들에게도 영향을 준다는 걸 느꼈습니다. 어떻게 해야 분명한 비전을 만들 수 있는지 답을 찾지는 못했지만 좋은 리더가 되기 위해선 더 많은 공부와 경험이 필요하겠다고 생각했습니다.<br />
