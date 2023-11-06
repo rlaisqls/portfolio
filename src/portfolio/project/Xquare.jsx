@@ -1,4 +1,5 @@
 import { GithubText } from "../../components/IconText";
+import { DocumentText } from "../../components/IconText";
 import { ProjectBanner } from "../../components/ProjectBanner";
 import { Toggle } from "../../components/Toggle";
 import { ModalImage } from "../../components/ModalImage";
@@ -29,7 +30,7 @@ export const Xquare = ({imageOpen}) => {
                     2명으로 이뤄진 데브옵스 팀에서 전체적인 인프라 구조를 주도적으로 설계 및 구축하였습니다.<br />
                     </p>
                     <p className="relative self-stretch">
-                    <Bold text="• CI/CD"/><br />
+                    <Bold text="CI/CD"/><br />
                     <div className="ml-[10px]">
                         <Toggle summary={<>
                             GitHub Actions 기반 인프라 구성 자동화 및 ArgoCD 배포 파이프라인 제공
@@ -44,7 +45,7 @@ export const Xquare = ({imageOpen}) => {
                     </div>
                     </p>
                     <p className="relative self-stretch">
-                    <Bold text="• EKS 환경 구축"/>
+                    <Bold text="EKS 환경 구축"/>
                     <div className="ml-[10px]">
                         <Toggle summary="필요한 manifest를 chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
@@ -68,18 +69,24 @@ export const Xquare = ({imageOpen}) => {
                                     <Gap/>
                                     2. <Tab/>최소 1개의 Pod가 활성 상태이도록 보장하는 <b>PDB</b>를 설정하고 <b>Node Termination Handler의</b><br/>
                                     <div className="ml-[20px]">
-                                        <b>코드를 커스텀</b>하여, node 종료 직전에 replica 개수를 임시적으로 증가시킨 후 새로운 Pod가 트래픽을 받을 수 있을 때 다시 갯수를 줄이는 블루/그린 배포를 구현했습니다.<br/>
+                                        <b>코드를 커스텀</b>하여, node 종료 직전에 replica 개수를 임시로 증가시킨 후 새로운 Pod가 트래픽을 받을 수 있을 때 다시 갯수를 줄이는 블루/그린 배포를 구현했습니다.<br/>
                                     </div>
                                     <Gap/>
-                               
+
                                     <Tab/>위 작업으로 사용 리소스를 최소화하며 가용성을 늘릴 수 있었고, 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선된 것을 확인할 수 있었습니다. <br/>(한 달간 측정, 분당 1회씩 health check용 url에 요청을 보내 서버 활성 여부 판단)
+
+                                    <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
+                                        <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d" target='_blank' rel="noopener noreferrer">
+                                        <DocumentText text="자세한 과정을 담은 기술문서"/>
+                                        </a>
+                                    </div>
                                 </>
                             }/>
                         </div>
                     </p>
                     <Gap/>
                     <p className="relative self-stretch">
-                    <Bold text="• 모니터링"/><br/>
+                    <Bold text="모니터링"/><br/>
                     <div className="ml-[10px]">
                         <Toggle summary="Istio를 사용해 내부 통신 추적, 공통 토큰 인증을 위한 middleware 개발" detail={
                             <>
@@ -104,7 +111,7 @@ export const Xquare = ({imageOpen}) => {
                     </p>
                     <Gap/>
                     <p className="relative self-stretch">
-                    <Bold text="• IaC"/><br/>
+                    <Bold text="IaC"/><br/>
                     <div className="ml-[10px]">
                         <Toggle summary="Terraform을 통해 EKS, S3, RDS, IAM role 등 인프라 스펙 선언 및 관리" detail={
                             <>

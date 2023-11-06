@@ -31,7 +31,7 @@ export const DMS = ({imageOpen}) => {
                 </span>
             </p>
             <p className="relative self-stretch">
-                <Bold text="• 일정 관리 및 기획 개발 과정 주도"/>
+                <Bold text="일정 관리 및 기획 개발 과정 주도"/>
                 <div className="ml-[10px]">
                     <Toggle summary="요구사항 수집 및 추가 기능 기획, 문서화" detail={
                         <>
@@ -55,7 +55,7 @@ export const DMS = ({imageOpen}) => {
             </p>
             <Gap/>
             <p className="relative self-stretch">
-                <Bold text="• 백엔드 개발"/>
+                <Bold text="백엔드 개발"/>
                 <div className="ml-[10px]">
                     <Toggle summary="자습실, 상벌점, 엑셀 출력, 알림 기능 DB 설계 및 api 개발" detail={
                         <>
@@ -98,7 +98,7 @@ export const DMS = ({imageOpen}) => {
             </p>
             <Gap/>
             <p className="relative self-stretch">
-                <Bold text="• Infra"/><br/>
+                <Bold text="Infra"/><br/>
                 <div className="ml-[10px]">
                     <Toggle summary="Docker gateway Missing 이슈 해결" detail={
                         <>
