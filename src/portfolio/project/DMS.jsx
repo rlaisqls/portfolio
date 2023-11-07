@@ -133,7 +133,7 @@ export const DMS = ({imageOpen}) => {
             <div className="inline-flex flex-col w-[645px] h-[63px] mb-[5px] mr-[-2.40px] items-center gap-[10px] relative border-solid border-[1px] drop-shadow-md bg-white border-lightgray rounded-lg">
             <div className="inline-flex items-center gap-[26px] absolute top-[13px] left-[18px]">
                 <p className="relative w-[491px]">
-                백엔드와 데브옵스에 대한 설계 정보 및 코드는 Github에서 확인하실 수 있습니다!
+                백엔드와 데브옵스에 대한 설계 및 코드는 GitHub에서 확인하실 수 있습니다!
                 </p>
                 <a href='https://github.com/team-aliens/DMS-Backend' target='_blank' rel="noopener noreferrer">
                 <div className="flex h-[35px] items-center justify-center gap-[10px] px-[16px] py-[14px] rounded relative bg-[#3D8AFF] hover:bg-[#336FF6] w-[84px]">

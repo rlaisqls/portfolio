@@ -16,7 +16,8 @@ export const Xquare = ({imageOpen}) => {
                 </div>
 
                 <p className="relative">
-                    여러 동아리에서 진행하는 프로젝트를 한 인프라에서 통합하여 관리하기 위한 프로젝트입니다.<br/>PaaS 형태의 통합 인프라를 통해 많은 학생들이 서버 성능이나 관리, 비용 부담 없이 프로젝트를 배포하고 사용할 수 있도록 하는 것이 목적입니다.<br/>현재 5개 동아리에서 6개의 서비스, 28개의 프로젝트(56개의 Pod)를 배포해 운영 중이며, 교내 선생님과 학생을 포함한 약 250명의 유저가 배포된 서비스를 사용하고 있습니다.
+                    <Tab/>여러 동아리의 프로젝트를 한 인프라에서 통합하여 관리하기 위한 프로젝트입니다. PaaS 형태의 통합 인프라를 통해 많은 학생들이 서버 성능이나 관리, 비용 부담 없이 프로젝트를 배포하고 사용할 수 있도록 하는 것이 목적입니다.<br/>
+                    <Tab/>현재 5개 동아리에서 개발하는 6개의 서비스, 28개의 프로젝트(56개의 Pod)를 인프라에서 관리 중이며, 교내 선생님과 학생을 포함한 약 250명의 유저가 배포된 서비스를 사용하고 있습니다.
                 </p>
                 </div>
 
@@ -33,13 +34,13 @@ export const Xquare = ({imageOpen}) => {
                     <Bold text="CI/CD"/><br />
                     <div className="ml-[10px]">
                         <Toggle summary={<>
-                            GitHub Actions 기반 인프라 구성 자동화 및 ArgoCD 배포 파이프라인 제공
+                            GitHub Actions, ArgoCD 기반 인프라 구성 자동화 및 배포 파이프라인 구축
                         </>} detail={
                             <>
-                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하기 위해 드는 공수를 최소화하기 위해 GitHub Actions 기반 파이프라인을 구현하였습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계하고 구축했습니다.<br/>
-                                <Tab/>각 동아리가 폼을 통해 신청하면 백오피스 서버를 통해 DB 계정과 액세스 키를 <br/>발급받아 GitHub Actions 배포 파이프라인을 자유롭게 활용할 수 있습니다.
+                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하는 공수를 최소화하기 위해 GitHub Actions 기반 배포 파이프라인을 구축했습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계, 구현했습니다.<br/>
+                                <Tab/>각 동아리가 폼을 통해 신청하면 백오피스 서버를 통해 DB 계정과 액세스 키를 발급받아 GitHub Actions 배포 파이프라인을 자유롭게 활용할 수 있습니다. Action에서 빌드된 프로젝트는 오토스케일링 가능한 EKS 환경에 배포됩니다.
                                 <Gap/>
-                                <ModalImage src="/img/description/deployment-action.png" className="h-[130px]" open={imageOpen}/>
+                                <ModalImage src="/img/description/deployment-action.png" className="h-[150px]" open={imageOpen}/>
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <a href="https://github.com/team-xquare/xquare-deployment-action" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/xquare-deployment-action"/>
@@ -54,10 +55,12 @@ export const Xquare = ({imageOpen}) => {
                     <div className="ml-[10px]">
                         <Toggle summary="필요한 K8s 리소스를 Helm Chart로 정의하여 Terraform, ArgoCD로 배포" detail={
                             <>
-                                <Tab/>인프라에 언제 어떤 변경이 반영되었는지 기록, 관리하기 위해 GitOps 방식을 사용했습니다.<br/>
+                                <Tab/>인프라에 언제 어떤 변경이 반영되었는지 기록하기 위해 Menifest를 GitOps 기반으로 관리합니다.<br/>
+                                Helm Chart로 템플릿화하여 중복 정의를 피하고 값을 쉽게 변경할 수 있도록 했습니다.
                                 <Gap/>
-                                1. 기본적으로 설치되어야 하며 자주 변하지 않는 인프라 요소는 Chart Repository를 정의한 뒤 Terraform을 통해 배포했습니다.<br/>
-                                2. 자주 변경되는 차트는 ArgoCD Application으로 정의하여 커밋시에 바로 적용되도록 했습니다.
+                                1. 자주 변경되는 차트는 ArgoCD Application으로 정의하여 배포합니다.<br/>
+                                2. 기본적으로 설치되어야 하며 자주 변하지 않는 인프라 요소는 Chart Repository 정의 후 <br/>
+                                <span className="ml-[20px]"/>Terraform을 통해 배포합니다.
                                 <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                     <a href="https://github.com/team-xquare/K8s-resource" target='_blank' rel="noopener noreferrer">
                                     <GithubText text="team-xquare/K8s-resource"/>
@@ -81,7 +84,8 @@ export const Xquare = ({imageOpen}) => {
                                     </div>
                                     <Gap/>
 
-                                    <Tab/>위 작업으로 사용 리소스를 최소화하며 가용성을 늘릴 수 있었고, 27개의 Pod에 대해 측정한 결과 가용성이 99.95%로 개선된 것을 확인할 수 있었습니다. <br/>(한 달간 측정, 분당 1회씩 Health Check용 URL에 요청을 보내 서버 활성 여부 판단)
+                                    <Tab/>위 작업으로 리소스를 추가로 사용하지 않고도 문제를 개선할 수 있었으며, 측정한 결과 가용성이 약 97.9%에서 99.95%로 향상된 것을 확인할 수 있었습니다. <br/>
+                                    <span className="text-gray">(한 달간 측정, 분당 1회씩 Health Check용 URL에 요청을 보내 서버 활성 여부 판단)</span>
 
                                     <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                         <a href="https://team-xquare.notion.site/spot-instance-downtime-660ad99c5dd549eb95e2c206f1d21d6d" target='_blank' rel="noopener noreferrer">
@@ -191,7 +195,7 @@ export const Xquare = ({imageOpen}) => {
                 <p className="relative self-stretch">
                 <span>
                     <Tab/>또, 모니터링을 통해 서버의 상태를 <b>실시간으로 파악</b>하거나 <b>기록해놓고 상태를 면밀하게 살펴보는 것</b>이
-                    중요하다는 것을 느꼈습니다. Prometheus, Loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에 빠르게 파악하여 조치할 수 있었습니다.
+                    중요하다는 것을 느꼈습니다. Prometheus, Loki로 다양한 정보를 수집하여 누적함으로써 오류가 발생할 경우에 더 빠르게 파악하여 조치할 수 있었습니다.
                     <br />
                 </span>
                 </p>
