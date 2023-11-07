@@ -85,9 +85,9 @@ export const Portfolio = () => {
             <div className="flex flex-col items-start gap-[20px] relative w-[264px]">
               <p className="text-head2"> Skills </p>
               <Line/>
-              <div className="flex flex-col items-start gap-[9px] w-[260px] h-[81px] left-0 ">
-                <p className="relative self-stretch"> • Java, Kotiln, Spring boot, Go <br/> </p>
-                <p className="relative self-stretch"> • AWS, Linux, Terraform, ShellScript <br/> </p>
+              <div className="flex flex-col items-start gap-[9px] w-[300px] h-[81px] left-0 ">
+                <p className="relative self-stretch"> • Java, Kotiln, Spring Boot, Go <br/> </p>
+                <p className="relative self-stretch"> • AWS, Linux, Terraform, Shell Script <br/> </p>
                 <p className="relative self-stretch"> • K8s, Prometheus, Istio 등 오픈소스 </p>
               </div>
             </div>
@@ -156,7 +156,7 @@ export const Portfolio = () => {
                           <p>
                             겨울방학 기간에 Greeting을 개발하는 Doodlin에서 지원자 엑셀 벌크 등록 및 수정 기능을 개발하였습니다.<br />
                             프로덕트의 목표를 달성하기 위해 기능을 기획하고 구현하는 과정을 경험할 수 있었습니다.<br />
-                            excel 파싱시 메모리 부하 방지를 위해 apache poi sax 라이브러리를 사용해 엑셀 정보를 XML 형식으로 읽고 stream 처리하도록 구현했습니다.
+                            Excel 파싱시 메모리 부하 방지를 위해 Apache POI SAX 라이브러리를 사용해 엑셀 정보를 XML 형식으로 읽고 Stream 처리하도록 구현했습니다.
                           </p>
                         </div>)
                     }
@@ -187,8 +187,8 @@ export const Portfolio = () => {
                           <span>
                             오픈소스, 위키에서 개선을 위해 기여한 경험이 있습니다.<br/>•
                           </span>
-                          <a href="https://github.com/aws/amazon-vpc-cni-k8s/pull/2573" rel="noopener noreferrer" target="_blank" > <span className="underline"> 23.09.18 </span>
-                          </a> : amazon-vpc-cni-k8s Docs에서 WARM_PREFIX_TARGET 설명에 포함된 잘못된 값 수정 <br/>
+                          <a href="https://github.com/aws/amazon-vpc-cni-K8s/pull/2573" rel="noopener noreferrer" target="_blank" > <span className="underline"> 23.09.18 </span>
+                          </a> : amazon-vpc-cni-K8s Docs에서 <code>WARM_PREFIX_TARGET</code> 설명에 포함된 잘못된 값 수정 <br/>
                           • <a href="https://github.com/istio/istio/pull/47026" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.09.18 </span> </a> : Istio Docs에서 잘못된 링크 수정<br/>
                           • <a href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EB%A6%AC_%EB%B2%A1%ED%84%B0_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.10.20 </span></a> : 위키백과 '거리 벡터 라우팅 프로토콜' 한국어 문서 작성
                         </p>
@@ -202,9 +202,9 @@ export const Portfolio = () => {
             <div className="inline-flex gap-[40px] relative flex-[0_0_auto] flex-col items-start">
               <div className="relative text-head2">Awards</div>
               <Line/>
-              <div className="flex flex-col space-between h-fit w-[883px] justify-start gap-[50px]">
+              <div className="flex flex-col space-between h-fit w-[883px] justify-start gap-[30px]">
                 <Element
-                  title={"KOSA-MIDAS Talent Challenge"}
+                  title={<>KOSA-MIDAS<br/>Talent Challenge</>}
                   subtitle={"마이다스인 대표이사상 (2위)"}
                   elementInfo={"2023.11"}
                   description={"유연근무 일정을 계획·관리하고 다른 직원의 출근 일정을 간편하게 확인하는 스트레치 서비스를 제작했습니다.\n조장 역할을 맡아 프로젝트 기획, 개발과정을 주도했으며 마이다스인 대표이사상(2위)을 수상했습니다."}
@@ -226,7 +226,7 @@ export const Portfolio = () => {
             <div className="inline-flex gap-[40px] relative flex-[0_0_auto] flex-col items-start">
               <div className="text-head2">Certificates</div>
               <Line/>
-              <div className="flex flex-col space-between h-fit w-[883px] justify-start gap-[50px]">
+              <div className="flex flex-col space-between h-fit w-[883px] justify-start gap-[30px]">
                 <Element
                   title={"TOEIC (755점)"}
                   subtitle={"한국TOEIC위원회"}

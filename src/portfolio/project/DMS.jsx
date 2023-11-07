@@ -15,9 +15,9 @@ export const DMS = ({imageOpen}) => {
             </div>
 
             <p className="relative">
-            기숙사에서는 다양한 신청 정보를 수기로 관리하는 경우가 많고, 필요한 정보를 빠르게 확인할 수 없었습니다. 따라서 기숙사 관리 절차, 또는 기숙사 생활에서 불편한 점을 개선하는 기숙사 관리 시스템을 개발했습니다.
+            기숙사에서는 다양한 신청 정보를 수기로 관리하는 경우가 많아 필요한 정보를 빠르게 확인할 수 없었습니다. 따라서 기숙사 관리 절차, 또는 기숙사 생활에서 불편한 점을 개선하는 기숙사 관리 시스템을 개발했습니다.
             <br />
-            모든 학교에 적용할 수 있는 서비스이며, 급식 보기, 공지사항, 분실물 관리, 상/벌점 관리 등 기숙사 생활의 편리함을 위해 다양한 기능을 제공합니다.
+            모든 학교에 적용할 수 있는 서비스이며, 급식 보기, 공지사항, 분실물 관리, 상/벌점 관리 등 편리한 기숙사 생활을 위해 다양한 기능을 제공합니다.
             </p>
 
             <div className="relative w-[85.5px] h-[27.99px] text-head3">
@@ -57,10 +57,10 @@ export const DMS = ({imageOpen}) => {
             <p className="relative self-stretch">
                 <Bold text="백엔드 개발"/>
                 <div className="ml-[10px]">
-                    <Toggle summary="자습실, 상벌점, 엑셀 업로드 및 출력, 알림 기능 DB 설계 및 api 개발" detail={
+                    <Toggle summary="자습실, 상벌점, 엑셀 업로드 및 출력, 알림 기능 DB 설계 및 API 개발" detail={
                         <>
-                            <Gap/>여러 기능에 대한 DB Table을 설계하고 api 로직을 개발했습니다.<br/>
-                            Detekt로 설정해놓은 lint 룰을 준수하고, MockK로 테스트코드를 작성했습니다.<br/>
+                            <Gap/>여러 기능에 대한 DB Table을 설계하고 API 로직을 개발했습니다.<br/>
+                            Detekt로 설정해놓은 Lint 룰을 준수하고, MockK로 테스트코드를 작성했습니다.<br/>
                             팀원 간 코드리뷰를 통해 코드에 대한 의견을 적극적으로 나누고 토의하였습니다.
                         </>
                     }/>
@@ -70,7 +70,7 @@ export const DMS = ({imageOpen}) => {
                                 <div className="w-[440px]">
                                     <Tab/>아키텍처 재설계로 중복 로직을 줄이고 코드를 간결하게 개선했습니다. <br/>
                                     <Gap/>
-                                    <Tab/>기존 아키텍처는 presentation → service → Repository 세 계층으로 이뤄져 있었기 때문에 service에 로직에 공통으로 나타나는 코드가 생겼습니다. Repository 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 정의하는 중간 계층을 추가하는 형태로 리팩토링하였습니다. <br/>
+                                    <Tab/>기존 아키텍처는 Presentation → Service → Repository 세 계층으로 이뤄져 있었기 때문에 Service 로직에 공통으로 나타나는 코드가 자주 발생했습니다. Repository 계층과 비즈니스 로직 사이에 각 도메인에서 사용되는 공통적인 함수를 정의하는 중간 계층을 추가하는 형태로 리팩토링하였습니다. <br/>
                                     <Gap/>
                                     <a href="https://github.com/team-aliens/DMS-Backend" target='_blank' rel="noopener noreferrer">
                                         <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
@@ -86,11 +86,11 @@ export const DMS = ({imageOpen}) => {
                             </div>
                         </>
                     }/>
-                    {/* <Toggle summary="UUID 기본값 삽입으로 인한 JPA 쿼리 방지로 api 성능 개선" detail={
+                    {/* <Toggle summary="UUID 기본값 삽입으로 인한 JPA 쿼리 방지로 API 성능 개선" detail={
                         <>
                             <Tab/>Id를 null이 아닌 필드로 선언하기 위해 초기 생성한 Id에 기본값으로 <code>UUID(0,0)</code>를 주입하는 코드가 있었는데, JPA persistable의 <code>isNew()</code>에서 해당 값을 기본값이 아닌 것으로 간주해 저장시 <code>merge</code> 가 호출되어 select 쿼리가 추가로 발생했습니다.<br/>
                             <Gap/>
-                            <Tab/> ID가 <code>UUID(0,0)</code>인 경우에 ID 필드를 null로 세팅하는 코드를 추가하여 해결했습니다. 많은 entity를 저장하는 자습실 생성 api에서 응답 속도를 40% 이상 개선할 수 있었습니다. (<code>129ms</code> → <code>72ms</code>)
+                            <Tab/> ID가 <code>UUID(0,0)</code>인 경우에 ID 필드를 null로 세팅하는 코드를 추가하여 해결했습니다. 많은 entity를 저장하는 자습실 생성 API에서 응답 속도를 40% 이상 개선할 수 있었습니다. (<code>129ms</code> → <code>72ms</code>)
                             <ModalImage
                                 src="/img/description/dms-baseuuidentity.png"
                                 className="h-[120px] mt-[10px]" open={imageOpen}
@@ -106,9 +106,9 @@ export const DMS = ({imageOpen}) => {
                 <div className="ml-[10px]">
                     <Toggle summary="Docker gateway Missing 이슈 해결" detail={
                         <>
-                            <Tab/>Spring 서버와 MySQL, Redis를 도커 네트워크 bridge로 연결하고 DB는 해당 내부 ip로만 통신하도록 하여 DB의 외부 노출을 줄이려 하였고, 작업 중 기본 bridge 네트워크의 gateway가 사라져 외부에서 container에 접근이 불가능한 이슈가 발생했습니다.<br/>
+                            <Tab/>Spring 서버와 MySQL, Redis를 도커 네트워크 <code>bridge</code>로 연결하고 DB는 해당 내부 IP로만 통신하도록 하여 DB의 외부 노출을 줄이려 하였고, 작업 중 기본 <code>bridge</code> 네트워크의 Gateway가 사라져 외부에서 Container에 접근이 불가능한 이슈가 발생했습니다.<br/>
                             <Gap/>
-                            <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 통신 문제 발생 지점을 빠르게 찾아내기 위해선 <b>네트워크에 대한 이해와 디버깅 능력</b>이 중요하다는 것을 느꼈고, network에서 subnet과 gateway의 역할 및 ip 구조에 대해 더 잘 이해할 수 있었습니다.
+                            <Tab/> 정확한 원인은 알아내지 못했으나 Docker를 재시작함으로써 해결했습니다. 통신 문제 발생 지점을 빠르게 찾아내기 위해선 <b>네트워크에 대한 이해와 디버깅 능력</b>이 중요하다는 것을 느꼈고, Network에서 Subnet과 Gateway의 역할 및 IP 구조에 대해 더 잘 이해할 수 있었습니다.
                             <ModalImage
                                 src="/img/description/docker-gateway-missing.png"
                                 className="h-[170px] mt-[10px]" open={imageOpen}
@@ -118,7 +118,7 @@ export const DMS = ({imageOpen}) => {
                     }/>
                     <Toggle summary="Terraform을 통해 AWS, Cloudflare 등 인프라 스펙 선언 및 관리" detail={
                         <>
-                            <Tab/>Terraform을 사용해 AWS, Cloudflare 인프라 요소를 코드로 선언하여 관리하였습니다. <br/> state 파일은 Terraform Cloud를 통해 저장합니다.
+                            <Tab/>Terraform을 사용해 AWS, Cloudflare 인프라 요소를 코드로 선언하여 관리하였습니다. <br/> State 파일은 Terraform Cloud를 통해 저장합니다.
                             <a href="https://github.com/team-aliens/dms-infrastructure" target='_blank' rel="noopener noreferrer">
                             <div className="bg-white border-solid border-[1px] drop-shadow-sm bg-white border-lightgray px-[10px] my-[5px] mb-[15px] h-[29px] w-fit rounded ">
                                 <GithubText text="team-aliens/dms-infrastructure"/>

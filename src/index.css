@@ -18,5 +18,8 @@
 
 code {
   color: #3a3a3a;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 2px;
   background-color: rgb(239, 239, 239);
 }

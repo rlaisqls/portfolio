@@ -11,7 +11,7 @@ export const GithubText = ({link, text}) => {
             src="/img/icon/github-black.png"
           />
           <div className="relative">
-            {text ? text : "Github"}
+            {text ? text : "GitHub"}
           </div>
         </div>
       </div>
