@@ -30,6 +30,8 @@ export const Xquare = ({imageOpen}) => {
                     <p className="relative self-stretch">
                     2명으로 이뤄진 데브옵스 팀에서 전체적인 인프라 구조를 주도적으로 설계 및 구축하였습니다.<br />
                     </p>
+
+                    <ModalImage src="/img/description/xquare-architecture-diagram.png" className="h-[320px]" open={imageOpen}/>
                     <p className="relative self-stretch">
                     <Bold text="CI/CD"/><br />
                     <div className="ml-[10px]">
