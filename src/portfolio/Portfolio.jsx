@@ -168,7 +168,7 @@ export const Portfolio = () => {
                       (<div className="flex flex-col items-start gap-[9px]">
                           <p>
                             <span>
-                              개발에 대해 공부하고 배운 내용을 정리하는 <a href="https://github.com/rlaisqls/TIL" rel="noopener noreferrer" target="_blank" > <span className="underline">TIL Repository</span></a>를 관리하고 있습니다. Network, OS, DB 등 다양한 개념을 약 600개의 md 파일에 정리하여 작성하고 있습니다. 이 Repository에 글을 작성하는 목표는 다음과 같습니다.<br />
+                              개발에 대해 공부하고 배운 내용을 정리하는 <a href="https://github.com/rlaisqls/TIL" rel="noopener noreferrer" target="_blank" > <span className="underline">TIL Repository</span></a>를 관리하고 있습니다. Network, OS, DB 등 다양한 개념을 약 600개의 md 파일에 정리, 작성하였고 현재도 꾸준히 공부한 내용을 추가하고 있습니다. 이 Repository에 글을 작성하는 목표는 다음과 같습니다.<br />
                             </span>
                             <span>
                               &nbsp;&nbsp;&nbsp;&nbsp; 1. 학습한 지식을 정리합니다.<br/>
