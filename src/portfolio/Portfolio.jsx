@@ -149,19 +149,6 @@ export const Portfolio = () => {
               <div className="inline-flex gap-[40px] relative flex-[0_0_auto] flex-col items-start">
                            
                 <Element
-                    title={"Doodlin 외주"}
-                    elementInfo={"2023.01 ~ 2023.02"}
-                    description={
-                      (<div className="flex flex-col items-start gap-[9px]">
-                          <p>
-                            겨울방학 기간에 Greeting을 개발하는 Doodlin에서 지원자 엑셀 벌크 등록 및 수정 기능을 개발하였습니다.<br />
-                            프로덕트의 목표를 달성하기 위해 기능을 기획하고 구현하는 과정을 경험할 수 있었습니다.<br />
-                            Excel 파싱시 메모리 부하 방지를 위해 Apache POI SAX 라이브러리를 사용해 엑셀 정보를 XML 형식으로 읽고 Stream 처리하도록 구현했습니다.
-                          </p>
-                        </div>)
-                    }
-                />
-                <Element
                     title={"TIL Repository"}
                     elementInfo={"2022.05 ~ present"}
                     description={
