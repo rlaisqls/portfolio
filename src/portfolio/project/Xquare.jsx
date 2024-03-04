@@ -39,7 +39,7 @@ export const Xquare = ({imageOpen}) => {
                             GitHub Actions, ArgoCD 기반 인프라 구성 자동화 및 배포 파이프라인 구축
                         </>} detail={
                             <>
-                                <Tab/>다른 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하는 공수를 최소화하기 위해 GitHub Actions 기반 배포 파이프라인을 구축했습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계, 구현했습니다.<br/>
+                                <Tab/>여러 동아리의 프로젝트를 <b>인프라에 추가</b>하고 <b>지속적으로 배포</b>하는 공수를 최소화하기 위해 GitHub Actions 기반 배포 파이프라인을 구축했습니다. ArgoCD, Terraform 등의 툴과 Shell Script, Go와 같은 다양한 언어를 사용하여 구조를 설계, 구현했습니다.<br/>
                                 <Tab/>각 동아리가 폼을 통해 신청하면 백오피스 서버를 통해 DB 계정과 액세스 키를 발급받아 GitHub Actions 배포 파이프라인을 자유롭게 활용할 수 있습니다. Action에서 빌드된 프로젝트는 오토스케일링 가능한 EKS 환경에 배포됩니다.
                                 <Gap/>
                                 <ModalImage src="/img/description/deployment-action.png" className="h-[150px]" open={imageOpen}/>
