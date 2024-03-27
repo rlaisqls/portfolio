@@ -77,7 +77,7 @@ export const Portfolio = () => {
                   <PersonalInfo info="https://github.com/rlaisqls" link="https://github.com/rlaisqls" icon="/img/icon/github-black.png"/>
                   <PersonalInfo info="https://linkedin.com/in/은빈-김" link="https://www.linkedin.com/in/%EC%9D%80%EB%B9%88-%EA%B9%80-248452250/" icon="/img/icon/linkedin-black.png"/>
                   <PersonalInfo info={
-                    <div> 대덕SW마이스터고 2학년 재학중 <span className="text-[#8f8f8f]"> 2022.03 ~ 2025.01 </span> </div>
+                    <div> 대덕SW마이스터고 3학년 재학중 <span className="text-[#8f8f8f]"> 2022.03 ~ 2024.12 </span> </div>
                   } icon="/img/icon/school-black.png" />
                 </div>
             </div>
