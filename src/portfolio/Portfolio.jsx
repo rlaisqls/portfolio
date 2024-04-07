@@ -179,6 +179,8 @@ export const Portfolio = () => {
                           • <a href="https://github.com/istio/istio/pull/47026" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.09.18 </span> </a> : Istio Docs에서 잘못된 링크 수정<br/>
                           • <a href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EB%A6%AC_%EB%B2%A1%ED%84%B0_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.10.20 </span></a> : 위키백과 '거리 벡터 라우팅 프로토콜' 한국어 문서 작성<br/>
                           • <a href="https://github.com/istio/istio/pull/47686" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.12.06 </span></a> : Istiod, Gateways에 HPA memory targetAverageUtilization 옵션 추가
+                          • <a href="https://github.com/grafana/pyroscope/pull/3177" rel="noopener noreferrer" target="_blank"> <span className="underline"> 24.04.07 </span></a> : Pyroscope 테스트코드에서만 사용되는 Mock 구조체를 테스트 파일로 이동
+                        </p>
                         </p>
                       </div>)
                     }
