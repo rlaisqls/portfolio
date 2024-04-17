@@ -181,7 +181,6 @@ export const Portfolio = () => {
                           • <a href="https://github.com/istio/istio/pull/47686" rel="noopener noreferrer" target="_blank"> <span className="underline"> 23.12.06 </span></a> : Istiod, Gateways에 HPA memory targetAverageUtilization 옵션 추가
                           • <a href="https://github.com/grafana/pyroscope/pull/3177" rel="noopener noreferrer" target="_blank"> <span className="underline"> 24.04.07 </span></a> : Pyroscope 테스트코드에서만 사용되는 Mock 구조체를 테스트 파일로 이동
                         </p>
-                        </p>
                       </div>)
                     }
                 />
