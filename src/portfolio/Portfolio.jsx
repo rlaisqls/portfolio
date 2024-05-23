@@ -68,12 +68,12 @@ export const Portfolio = () => {
             </div>
 
             <div className="inline-flex flex-row w-full items-start">
-                <div className="inline-flex flex-col w-[271px] items-start gap-[5px]">
-                  <PersonalInfo info="2006.12.14"  icon="/img/icon/user-black.png"/>
-                  <PersonalInfo info="rlaisqls@gmail.com" link="mailto:rlaisqls@gmail.com" icon="/img/icon/email-black.jpg"/>
-                  <PersonalInfo info="010-7199-5931" icon="/img/icon/phone-black.png"/>
-                </div>
+                {/* <div className="inline-flex flex-col w-[271px] items-start gap-[5px]">
+                  <PersonalInfo info=""  icon="/img/icon/user-black.png"/>
+                  <PersonalInfo info="" icon="/img/icon/phone-black.png"/>
+                </div> */}
                 <div className="inline-flex flex-col items-start gap-[5px]">
+                  <PersonalInfo info="rlaisqls@gmail.com" link="mailto:rlaisqls@gmail.com" icon="/img/icon/email-black.jpg"/>
                   <PersonalInfo info="https://github.com/rlaisqls" link="https://github.com/rlaisqls" icon="/img/icon/github-black.png"/>
                   <PersonalInfo info="https://linkedin.com/in/은빈-김" link="https://www.linkedin.com/in/%EC%9D%80%EB%B9%88-%EA%B9%80-248452250/" icon="/img/icon/linkedin-black.png"/>
                   <PersonalInfo info={
